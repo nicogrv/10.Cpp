@@ -4,7 +4,7 @@ OBJS = ${SRCS:.c=.o}
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra -I ./
+CFLAGS = -g -Wall -Werror -Wextra -I ./
 
 NAME = phonebook
 
