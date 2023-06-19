@@ -18,7 +18,7 @@ int main(int c, char **v)
 		std::cout << v[j];
 		j++;
 	}
-	std::cout  << std::endl;
+	std::cout << std::endl;
 	return 0;
 }
 
