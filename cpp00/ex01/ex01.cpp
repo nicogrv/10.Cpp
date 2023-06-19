@@ -2,6 +2,19 @@
 #include <cctype>
 #include "PhoneBook.hpp"
 
+bool ft_is_aplha(std::string str)
+{
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		if (!isalpha(str[i]))
+			return (false);
+		else
+			i++;
+	}
+	return (true);
+}
+
 int main(void)
 {
 	PhoneBook book;
@@ -12,10 +25,9 @@ int main(void)
 		std::cout << "PhoneBook: ";
 		if(input.compare("ADD") == 0)
 		{
-			std::cout << "PhoneBook: ";
-			std::getline(std::cin, input);
-			input >> [PhoneBook::nb_contact];;
-			
+			book.ft_add();
+
+				
 		}
 
 	}

@@ -5,9 +5,11 @@
 
 	class PhoneBook
 	{
-		PhoneBook(void);
-		~PhoneBook(void);
-		Contact contact[8];
-		int nb_contact;
+		public:
+			PhoneBook(void);
+			~PhoneBook(void);
+			Contact contact[8];
+			void ft_add();
+			int nb_contact;
 	};
 #endif
