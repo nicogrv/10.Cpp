@@ -3,6 +3,8 @@ SHELL = /bin/bash
 SRCS += tests.cpp
 SRCS += Account.cpp
 
+HPP += ./Include/Account.hpp
+
 OBJS = ${patsubst %.cpp, ${OBJS_PATH}/%.o, ${SRCS}}
 
 SRC_PATH += ./src/
