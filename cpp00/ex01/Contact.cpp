@@ -4,6 +4,11 @@
 
 Contact::Contact(void)
 {
+    this->nname = "";
+    this->fname = "";
+    this->lname = "";
+    this->phone = "";
+    this->darkestSecret = "";
     return ;
 }
 

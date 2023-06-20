@@ -46,9 +46,11 @@ int main(void)
 			book.ft_add();
 		else if (input.compare("SEARCH") == 0)
 			book.ft_search();
+		else if (input.compare("EXIT") == 0)
+			return (0);
 		std::cout << "PhoneBook: ";
 	}
 
-	return 0;
+	return 1;
 }
 
