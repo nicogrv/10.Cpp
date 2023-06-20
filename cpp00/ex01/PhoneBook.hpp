@@ -10,6 +10,11 @@
 			~PhoneBook(void);
 			Contact contact[8];
 			void ft_add();
-			int nb_contact;
+			void ft_search();
+		private:
+			int _index_contact;
+			int _book_full;
+
 	};
+
 #endif
