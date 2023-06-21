@@ -16,7 +16,9 @@ CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 vpath %.cpp ${SRC_PATH}
 vpath %.hpp ${HEAD_PATH}
 
-all: ${OBJS}
+all: ${NAME}
+
+${NAME}: ${OBJS}
 	@ ${CC} -o ${NAME} ${OBJS} ${HEAD_PATH} ${CFLAGS}
 	@ echo -ne "\r\033[2K" $(LIGHTGREEN) "\t$(NAME) OK" "\033[0m" "\n"
 
