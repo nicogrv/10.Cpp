@@ -169,7 +169,8 @@ void PhoneBook::ft_search()
 	}
 	std::cout << std::endl << "For more information type index: ";
 	std::string input;
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+		exit(0);
 	i = std::atoi(input.c_str());
 	if (ft_is_num(input) && -1 < i && i < 8 && (i < this->_index_contact || this->_book_full))
 	{

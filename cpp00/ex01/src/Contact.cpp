@@ -24,7 +24,8 @@ void Contact::ft_add(void)
 	while (1)
 	{
 		std::cout << "Contact FirstName: ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(0);
 		if (ft_is_aplha(input))
 		{
 			this->fname = input;
@@ -35,7 +36,8 @@ void Contact::ft_add(void)
 	while (1)
 	{
 		std::cout << "Contact LastName: ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(0);
 		if (ft_is_aplha(input))
 		{
 			this->lname = input;
@@ -44,12 +46,14 @@ void Contact::ft_add(void)
 		std::cout << "Incorrect LastName." << std::endl;
 	}
 	std::cout << "Contact NickName: ";
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+		exit(0);
 	this->nname = input;
 	while (1)
 	{
 		std::cout << "Contact PhoneNumber: ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(0);
 		if (ft_is_PhoneNumber(input))
 		{
 			this->phone = input;
@@ -58,7 +62,8 @@ void Contact::ft_add(void)
 		std::cout << "Incorrect PhoneNumber." << std::endl;
 	}
 	std::cout << "Contact DarkestSecret: ";
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+		exit(0);
 	this->darkestSecret = input;
 }
 
