@@ -9,10 +9,10 @@
 		public:
 			PhoneBook(void);
 			~PhoneBook(void);
-			Contact contact[8];
 			void ft_add();
 			void ft_search();
 		private:
+			Contact contact[8];
 			int _index_contact;
 			int _book_full;
 
