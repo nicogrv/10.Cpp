@@ -1,9 +1,15 @@
 SHELL = /bin/bash
 
 SRCS += main.cpp
-SRCS += newZombie.cpp
-SRCS += randomChump.cpp
-SRCS += Zombie.cpp
+SRCS += HumanA.cpp
+SRCS += HumanB.cpp
+SRCS += Weapon.cpp
+
+HPP += ./Include/main.hpp
+HPP += ./Include/HumanA.hpp
+HPP += ./Include/HumanB.hpp
+HPP += ./Include/Weapon.hpp
+
 
 OBJS = ${patsubst %.cpp, ${OBJS_PATH}/%.o, ${SRCS}}
 
@@ -11,9 +17,8 @@ SRC_PATH += ./src/
 OBJS_PATH = ./src/_Objet
 HEAD_PATH += -I ./Include
 
-HPP += ./Include/Zombie.hpp
 
-NAME = ex00
+NAME = ex03
 CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
