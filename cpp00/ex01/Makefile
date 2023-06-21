@@ -15,7 +15,7 @@ HPP += ./Include/ex01.hpp
 HPP += ./Include/PhoneBook.hpp
 
 NAME = PhoneBook
-CC = g++
+CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
 vpath %.cpp ${SRC_PATH}

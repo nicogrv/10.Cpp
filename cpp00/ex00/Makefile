@@ -10,7 +10,7 @@ HEAD_PATH += -I ./Include
 
 
 NAME = megaphone
-CC = g++
+CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
 vpath %.cpp ${SRC_PATH}
