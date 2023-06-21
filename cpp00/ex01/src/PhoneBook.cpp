@@ -96,74 +96,32 @@ void	PhoneBook::ft_add()
 void PhoneBook::ft_search()
 {
 	int i = 0;
-	int j = 0;
-	int k = 0;
-	int len = 0;
 	std::string str;
 
-	std::cout << std::endl << "|     Index| FirstName|  LastName|  NickName|" << std::endl << "---------------------------------------------" << std::endl ;
+	std::cout << std::endl << "|" << std::setw(10) << "Index" << "|" << std::setw(10) << "FirstName" << "|" << std::setw(10) <<  "LastName" << "|" << std::setw(10) << "NickName" << "|" << std::endl;
+	std::cout << "---------------------------------------------" << std::endl;
 	while (i < 8)
 	{
-		if (i < this->_index_contact || this->_book_full)
-		{
-			std::cout << "|         " << i << "|";
-			len = this->contact[i].ft_get_fname().length();
-			j = 0;
-			str = this->contact[i].ft_get_fname();
-			if (10 < len)
-			{
-				while  (j < 9)
-					std::cout << str[j++];
-				std::cout << ".|";
-			}
-			else
-			{
-				while (j++ < 10 - len)
-					std::cout << " ";
-				k = 0;
-				while (j++ <= 10)
-					std::cout << str[k++];
-				std::cout << "|";
-			}
-			len = this->contact[i].ft_get_lname().length();
-			j = 0;
-			str = this->contact[i].ft_get_lname();
-			if (10 < len)
-			{
-				while  (j < 9)
-					std::cout << str[j++];
-				std::cout << ".|";
-			}
-			else
-			{
-				while (j++ < 10 - len)
-					std::cout << " ";
-				k = 0;
-				while (j++ <= 10)
-					std::cout << str[k++];
-				std::cout << "|";
-			}
-			len = this->contact[i].ft_get_nname().length();
-			j = 0;
-			str = this->contact[i].ft_get_nname();
-			if (10 < len)
-			{
-				while  (j < 9)
-					std::cout << str[j++];
-				std::cout << ".|";
-			}
-			else
-			{
-				while (j++ < 10 - len)
-					std::cout << " ";
-				k = 0;
-				while (j++ <= 10)
-					std::cout << str[k++];
-				std::cout << "|";
-			}
-		}
+		std::cout << "|";
+		std::cout << std::setw(10) << i << "|";
+		std::cout << std::setw(10);
+		str = this->contact[i].ft_get_fname();
+		if (10 < str.length())
+				std::cout << str.substr(0, 9).append(".|");
 		else
-			std::cout << "|          |          |          |          |";
+			std::cout << str << "|";
+		std::cout << std::setw(10);
+		str = this->contact[i].ft_get_lname();
+		if (10 < str.length())
+				std::cout << str.substr(0, 9).append(".|");
+		else
+			std::cout << str << "|";
+		std::cout << std::setw(10);
+		str = this->contact[i].ft_get_nname();
+		if (10 < str.length())
+				std::cout << str.substr(0, 9).append(".|");
+		else
+			std::cout << str << "|";
 		std::cout << std::endl;
 		i++;
 	}
