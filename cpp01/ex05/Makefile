@@ -1,9 +1,9 @@
 SHELL = /bin/bash
 
-SRCS += tests.cpp
-SRCS += Account.cpp
+SRCS += main.cpp
+SRCS += Harl.cpp
 
-HPP += ./Include/Account.hpp
+HPP += Harl.hpp
 
 OBJS = ${patsubst %.cpp, ${OBJS_PATH}/%.o, ${SRCS}}
 
@@ -11,7 +11,8 @@ SRC_PATH += ./src/
 OBJS_PATH = ./src/_Objet
 HEAD_PATH += -I ./Include
 
-NAME = dream
+
+NAME = ex04
 CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
