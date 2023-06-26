@@ -7,6 +7,6 @@
 int main(void) 
 {
 	Harl log;
-	log.complain("debug");
+	log.complain("info");
 	return (0);
 }

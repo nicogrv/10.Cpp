@@ -1,6 +1,6 @@
 #include "../Include/Harl.hpp"
 
-void Harl::debug()
+void Harl::debug() 
 {
 	std::cout << "Debug: I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do !" << std::endl;
 }
@@ -21,9 +21,10 @@ void Harl::error()
 }
 
 
-void complain( std::string level )
+void Harl::complain( std::string level )
 {
 	std::string option[4];
+	void        (Harl::*ft[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	int i;
 	
 	option[0] = "debug";
@@ -35,10 +36,7 @@ void complain( std::string level )
 	while (++i < 4)
 	{
 		if (level.compare(option[i]) == 0)
-		{
-
-		}
+			return ((this->*ft[i])());
 	}
 	std::cout << "Invalide Level (debug / info / warning / error)" << std::endl;
-
 }
