@@ -16,7 +16,7 @@ NAME = ex04
 CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
-vpath %.cpp ${SRC_PATH}
+vpath %.cpp ${SRC_PATH}    
 vpath %.hpp ${HEAD_PATH}
 
 all: ${NAME}
