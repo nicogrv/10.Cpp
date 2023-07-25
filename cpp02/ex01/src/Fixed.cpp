@@ -31,13 +31,13 @@ Fixed::Fixed()
     this->_nf = 0;
     std::cout << "Default constructor called\n";
 }
-Fixed::Fixed(int nbr)
+Fixed::Fixed(int const nbr)
 {
     std::cout << "Int constructor called\n";
     this->_nf =  nbr << this->_mvBit;
 
 }
-Fixed::Fixed(float nbr)
+Fixed::Fixed(float const nbr)
 {
     
     std::cout << "Float constructor called\n";

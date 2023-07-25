@@ -16,6 +16,7 @@ int main( void )
     // a.beRepaired(72);
     // a.takeDamage(1);
     a.attack("Pierre");
+    
 
     a.attack("Pierre");
 

@@ -9,8 +9,8 @@ class Fixed
     public:
         Fixed();
         Fixed(Fixed const &cpy);
-        Fixed(int nbr);
-        Fixed(float nbr);
+        Fixed(int const nbr);
+        Fixed(float const nbr);
         ~Fixed();
 
         float toFloat( void ) const;
