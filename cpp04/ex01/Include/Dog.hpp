@@ -1,6 +1,7 @@
 #ifndef DOG_HPP
 	#define DOG_HPP
 	#include "./Animal.hpp"
+	#include "./Brain.hpp"
 
 
 class Dog : public Animal
@@ -9,7 +10,7 @@ class Dog : public Animal
 		Dog();
 		Dog(const Dog &src);
 		Dog	&operator=(const Dog &src);
-		~Dog();
+		virtual ~Dog();
 
 
 		std::string getType() const;
@@ -18,6 +19,7 @@ class Dog : public Animal
 
 	protected:
 		std::string type;
+		Brain *cerv;
 
 };
 

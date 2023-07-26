@@ -4,6 +4,7 @@ Dog::Dog() : Animal("Dog")
 {
 	this->type = "Dog";
 	std::cout << "Dog life (Dog)" << std::endl;
+	this->cerv = new Brain();
 }
 Dog::Dog(const Dog &src) : Animal("Dog")
 {
@@ -18,7 +19,9 @@ Dog	&Dog::operator=(const Dog &src)
 }
 Dog::~Dog()
 {
+	delete this->cerv;
 	std::cout << "Dog dead (" << type << ")" << std::endl;
+
 }
 
 std::string Dog::getType() const

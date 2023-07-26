@@ -4,41 +4,13 @@ SRCS += main.cpp
 SRCS += Animal.cpp
 SRCS += Dog.cpp
 SRCS += Cat.cpp
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
+SRCS += Brain.cpp
 SRCS += 
 
 HPP += Animal.hpp
 HPP += Cat.hpp
 HPP += Dog.hpp
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
+HPP += Brain.hpp
 HPP += 
 
 OBJS = ${patsubst %.cpp, ${OBJS_PATH}/%.o, ${SRCS}}
@@ -48,7 +20,7 @@ OBJS_PATH = ./src/_Objet
 HEAD_PATH += -I ./Include
 
 
-NAME = ex00
+NAME = ex01
 CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 

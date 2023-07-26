@@ -4,6 +4,7 @@ Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat life (Cat)" << std::endl;
 	this->type = "Cat";
+	this->cerv = new Brain();
 }
 Cat::Cat(const Cat &src) : Animal("Cat")
 {
@@ -19,6 +20,7 @@ Cat	&Cat::operator=(const Cat &src)
 }
 Cat::~Cat()
 {
+	delete this->cerv;
 	std::cout << "Cat dead (" << type << ")" << std::endl;
 }
 
