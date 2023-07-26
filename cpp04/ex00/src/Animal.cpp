@@ -41,7 +41,7 @@ void		Animal::setType(std::string type)
 	return ;
 }
 
-void		Animal::makeSound() const 
+void		Animal::makeSound() const
 {
 	std::cout << "NO SOUND " << std::endl;
 }

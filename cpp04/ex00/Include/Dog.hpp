@@ -1,6 +1,5 @@
 #ifndef DOG_HPP
 	#define DOG_HPP
-	#include <iostream>
 	#include "./Animal.hpp"
 
 
@@ -15,7 +14,7 @@ class Dog : public Animal
 
 		std::string getType() const;
 		void		setType(std::string type);
-		void		makeSound() const ;
+		virtual void		makeSound() const;
 
 	protected:
 		std::string type;

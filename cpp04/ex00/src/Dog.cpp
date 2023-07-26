@@ -31,7 +31,7 @@ void		Dog::setType(std::string type)
 	return ;
 }
 
-void		Animal::makeSound() const 
+void		Dog::makeSound() const
 {
-	std::cout << "Miaou !" << std::endl;
+	std::cout << "Wouaf !" << std::endl;
 }

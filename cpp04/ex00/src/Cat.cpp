@@ -32,7 +32,7 @@ void		Cat::setType(std::string type)
 	return ;
 }
 
-void		Animal::makeSound() const 
+void		Cat::makeSound() const
 {
 	std::cout << "Miaou !" << std::endl;
 }
