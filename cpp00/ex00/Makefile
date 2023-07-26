@@ -63,12 +63,12 @@ WHITE='\033[1;37m'
 ifndef COLORCOMPIL
 COLORCOMPIL = \
 	if [ "$(shell test $P -lt 33; echo $$?)" = "0" ]; then \
-    	echo -ne "\r\033[2K" $(LIGHTRED) "[$(P)%] "$(DARKGRAY) "Compiling "$(NAME) $(WHITE) "$<"; \
+    	echo -ne "\r\033[2K" $(LIGHTRED) "[$(P)%] "$(DARKGRAY) "Compiling Cub3d" $(WHITE) "$<"; \
 	else \
 		if [ "$(shell test $P -lt 66; echo $$?)" = "0" ]; then \
-    		echo -ne "\r\033[2K" $(YELLOW) "[$(P)%]" $(DARKGRAY) "Compiling "$(NAME) $(WHITE) "$<"; \
+    		echo -ne "\r\033[2K" $(YELLOW) "[$(P)%]" $(DARKGRAY) "Compiling Cub3d" $(WHITE) "$<"; \
 		else \
-       		echo -ne "\r\033[2K" $(LIGHTGREEN) "[$(P)%]" $(DARKGRAY) "Compiling "$(NAME) $(WHITE) "$<"; \
+       		echo -ne "\r\033[2K" $(LIGHTGREEN) "[$(P)%]" $(DARKGRAY) "Compiling Cub3d" $(WHITE) "$<"; \
 		fi \
 	fi
 T := $(words $(SRCS))

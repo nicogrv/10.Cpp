@@ -6,7 +6,8 @@
 int main( void ) 
 {
     // ScavTrap b("Titou");
-    FragTrap c("Noe");
+    FragTrap c("Pierre");
+    c.attack("Titou");
     c.highFivesGuys();
     return 0;
 }

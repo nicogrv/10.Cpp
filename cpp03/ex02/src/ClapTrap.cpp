@@ -24,13 +24,13 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &src)
     this->_hitPoints = src._hitPoints;
     this->_energiePoints = src._energiePoints;
     this->_attackDamage = src._attackDamage;
-    std::cout << this->_name << " =  " << src._name << std::endl;
+    std::cout << "ClapTrap " << this->_name << " =  " << src._name << std::endl;
     return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << this->_name << " destroy !" << std::endl;
+    std::cout << "ClapTrap " << this->_name << " destroy !" << std::endl;
     return ;
 }
 
