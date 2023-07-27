@@ -11,4 +11,6 @@ int main()
 	Animal *cat = new Cat();
 
 	cat->makeSound();
+
+	delete cat;
 }

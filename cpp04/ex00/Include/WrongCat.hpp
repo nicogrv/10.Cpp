@@ -9,7 +9,7 @@ class WrongCat : public WrongAnimal
 		WrongCat();
 		WrongCat(const WrongCat &src);
 		WrongCat	&operator=(const WrongCat &src);
-		~WrongCat();
+		virtual ~WrongCat();
 
 
 		std::string getType() const;

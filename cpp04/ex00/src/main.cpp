@@ -19,5 +19,11 @@ int main()
 	j->makeSound();
 	i->makeSound(); //will output the cat sound!
 	Wrong->makeSound();
+
+	delete meta;
+	delete i;
+	delete j;
+	delete Wrong;
+	
 	return 0;
 }

@@ -39,27 +39,28 @@ int main()
 	cat.setIdeas("bonjour");
 	std::cout << "------\n";
 	std::cout << cat.getIdeas() << std::endl;
-	std::cout << "------\n";
 
 
 	catcpy = cat;
 
 	std::cout << "------\n";
 	std::cout << catcpy.getIdeas() << std::endl;
-	std::cout << "------\n";
 
 	catcpy.setIdeas("salut");
 
 
 	std::cout << "------\n";
 	std::cout << cat.getIdeas() << std::endl;
-	std::cout << "------\n";
 
 	std::cout << "------\n";
 	std::cout << catcpy.getIdeas() << std::endl;
 	std::cout << "------\n";
-	std::cout << "------\n";
-	std::cout << "------\n";
+
+
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
 
 	
 	return 0;
