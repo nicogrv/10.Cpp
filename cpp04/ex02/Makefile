@@ -25,7 +25,7 @@ OBJS_PATH = ./src/_Objet
 HEAD_PATH += -I ./Include
 
 
-NAME = ex01
+NAME = ex02
 CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
