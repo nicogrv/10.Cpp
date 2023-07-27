@@ -13,13 +13,18 @@ Dog::Dog(const Dog &src) : Animal("Dog")
 }
 Dog	&Dog::operator=(const Dog &src)
 {
+	std::cout << "Cat = opperator" << std::endl;
+	if (!this->cerv)
+		this->cerv = new Brain();
 	this->type = src.type;
-	std::cout << "Dog = opperator" << std::endl;
+	*(this->cerv) = *(src.cerv);
 	return (*this);
+
 }
 Dog::~Dog()
 {
-	delete this->cerv;
+	if (!this->cerv)
+		delete this->cerv;
 	std::cout << "Dog dead (" << type << ")" << std::endl;
 
 }

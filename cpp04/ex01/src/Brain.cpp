@@ -16,7 +16,7 @@ Brain	&Brain::operator=(const Brain &src)
 {
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = src.ideas[i];
-	std::cout << "New = Brain" << std::endl;
+	std::cout << "New = Brain |||" << std::endl;
 	return (*this);
 
 }

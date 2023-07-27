@@ -27,7 +27,7 @@ HEAD_PATH += -I ./Include
 
 NAME = ex01
 CC = c++
-CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
+CFLAGS = -fsanitize=address -g3 -std=c++98 -Wall -Werror -Wextra -I ./
 
 vpath %.cpp ${SRC_PATH}    
 vpath %.hpp ${HEAD_PATH}

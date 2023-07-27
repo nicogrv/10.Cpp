@@ -24,7 +24,8 @@ Cat	&Cat::operator=(const Cat &src)
 }
 Cat::~Cat()
 {
-	delete this->cerv;
+	if (!this->cerv)
+		delete this->cerv;
 	std::cout << "Cat dead (" << type << ")" << std::endl;
 }
 
