@@ -12,7 +12,7 @@ Form::Form(std::string name, int const signGrade, int const executeGrade)  : _na
     else if (150 < executeGrade)
         throw Form::GradeTooLowException("Error: executeGrade is to low");
     
-    std::cout << "New Form:" << this->_name << std::endl;
+    std::cout << "New Form: " << this->_name << std::endl;
 }
 
 Form::Form(Form &cpy) :  _name(cpy.getName()), _signGrade(cpy.getSignGrade()), _executeGrade(cpy.getExecuteGrade())
@@ -21,7 +21,7 @@ Form::Form(Form &cpy) :  _name(cpy.getName()), _signGrade(cpy.getSignGrade()), _
 }
 Form::~Form()
 {
-    std::cout << "Delete Form:" << this->_name << std::endl;
+    std::cout << "Delete Form: " << this->_name << std::endl;
 }
 Form &Form::operator=(Form &cpy) 
 {
@@ -34,12 +34,6 @@ void Form::beSigned(Bureaucrat &bureaucrat)
     if (this->_signGrade < bureaucrat.getGrade())
         throw Form::GradeTooLowException("The bureaucrat doesn't have the grade to sign\n");
     this->_sign = true;
-}
-
-void Form::signForm() const
-{
-    if (this->_sign)
-        std::cout << 
 }
 
 

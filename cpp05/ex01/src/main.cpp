@@ -4,25 +4,22 @@
 
 int main()
 {
-    Bureaucrat Bob("Bob", 1);
+    Bureaucrat Bob("Bob", 5);
     try
     {
-        Bureaucrat Tim("Tim", 0);
+        Form Doc("Contract", 1, 1);
+        // Form Doc("Contract", 10, 10);
+        std::cout << Doc;
+        Bob.signForm(Doc);
+        std::cout << Doc;
+
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cout << "ERROR\t" << e.what() << '\n';
     }
 
-    try
-    {
-        Form Doc("Contract", 150, 150);
-        std::cout << Doc;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    
     
 
 }
