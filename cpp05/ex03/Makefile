@@ -6,6 +6,7 @@ SRCS += AForm.cpp
 SRCS += ShrubberyCreationForm.cpp
 SRCS += RobotomyRequestForm.cpp
 SRCS += PresidentialPardonForm.cpp
+SRCS += Intern.cpp
 
 
 HPP += Bureaucrat.hpp
@@ -13,8 +14,7 @@ HPP += AForm.hpp
 HPP += ShrubberyCreationForm.hpp
 HPP += RobotomyRequestForm.hpp
 HPP += PresidentialPardonForm.hpp
-HPP += 
-HPP += 
+HPP += Intern.hpp
 HPP += 
 HPP += 
 HPP += 
