@@ -1,5 +1,6 @@
 #include "../Include/Bureaucrat.hpp"
-#include "../Include/Form.hpp"
+#include "../Include/AForm.hpp"
+#include "../Include/ShrubberyCreationForm.hpp"
 
 
 int main()
@@ -7,11 +8,12 @@ int main()
     Bureaucrat Bob("Bob", 5);
     try
     {
-        Form Doc("Contract", 1, 1);
-        // Form Doc("Contract", 10, 10);
-        std::cout << Doc;
-        Bob.signForm(Doc);
-        std::cout << Doc;
+        // AForm Doc("Contract", 1, 1);
+        // AForm Doc("Contract", 10, 10);
+        ShrubberyCreationForm Test("Arbre");
+        // std::cout << Doc;
+        // Bob.signForm(Doc);
+        // std::cout << Doc;
 
     }
     catch(const std::exception& e)

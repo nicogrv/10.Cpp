@@ -2,8 +2,8 @@ SHELL = /bin/bash
 
 SRCS += main.cpp
 SRCS += Bureaucrat.cpp
-SRCS += Form.cpp
-SRCS += 
+SRCS += AForm.cpp
+SRCS += ShrubberyCreationForm.cpp
 SRCS += 
 SRCS += 
 SRCS += 
@@ -13,8 +13,8 @@ SRCS +=
 SRCS += 
 
 HPP += Bureaucrat.hpp
-HPP += Form.hpp
-HPP += 
+HPP += AForm.hpp
+HPP += ShrubberyCreationForm.hpp
 HPP += 
 HPP += 
 HPP += 

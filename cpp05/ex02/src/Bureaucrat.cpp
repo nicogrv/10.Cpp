@@ -57,7 +57,7 @@ void Bureaucrat::incrementGrade()
     std::cout << "(+) new grade: " << this->_grade << std::endl;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {
