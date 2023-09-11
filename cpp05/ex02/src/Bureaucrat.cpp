@@ -52,7 +52,7 @@ void Bureaucrat::decrementGrade()
 void Bureaucrat::incrementGrade() 
 {
     if (this->_grade - 1 < 1)
-        throw Bureaucrat::GradeTooLowException("Error: The grade is too hight\n");
+        throw Bureaucrat::GradeTooHighException("Error: The grade is too hight\n");
     this->_grade--;
     std::cout << "(+) new grade: " << this->_grade << std::endl;
 }
@@ -62,7 +62,6 @@ void Bureaucrat::signForm(AForm &form)
     try
     {
         form.beSigned(*this);
-        std::cout << this->_name << " signed " << form.getName() << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -70,6 +69,24 @@ void Bureaucrat::signForm(AForm &form)
     }
     
 }
+
+void Bureaucrat::executeForm(AForm &form)
+{
+    if (this->getGrade() > form.getExecuteGrade())
+        throw Bureaucrat::GradeTooLowException("Error: The grade is too hight\n");
+    else if (!form.getSign())
+        throw Bureaucrat::GradeTooLowException("The contract is not signed \n");
+    else
+        try
+        {
+            form.execute(*this);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << "\nERROR " << e.what() << '\n';
+        }
+}
+
 
 
 

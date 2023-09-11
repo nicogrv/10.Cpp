@@ -16,7 +16,7 @@ int main()
         std::cout << Test;
         Test.execute(Bob);
         RobotomyRequestForm Robot("bip");
-        Robot.execute(Bob);
+        // Robot.execute(Bob);
         Robot.beSigned(Bob);
         Robot.execute(Bob);
 
@@ -27,7 +27,14 @@ int main()
         Pardon.execute(Bob);
         std::cout << Pardon;
 
+        Bob.executeForm(Pardon);
 
+
+        Bureaucrat Tim("Bob", 1);
+        RobotomyRequestForm Bot("TOK");
+        Tim.signForm(Bot);
+        Tim.executeForm(Bot);
+        Bot.execute(Tim);
 
     }
     catch(const std::exception& e)
