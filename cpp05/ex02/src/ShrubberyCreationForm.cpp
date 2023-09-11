@@ -1,4 +1,5 @@
 #include "../Include/ShrubberyCreationForm.hpp"
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name) : AForm(name, 145, 137)
 {
     std::cout << "New \"ShrubberyCreationForm\"" << name << std::endl;
@@ -11,8 +12,44 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
     std::cout << "Delete \"ShrubberyCreationForm\"" << this->getName() << std::endl;
 }
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &cpy)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &obj)
 {
-    (void) cpy;
-    return (*this);
+	(void)	obj;
+	return (*this);
+}
+
+
+void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+{
+    if (this->getExecuteGrade() < executor.getGrade())
+        throw AForm::GradeTooLowException("The bureaucrat doesn't have the grade to execute\n");
+
+    std::string fileName = executor.getName().insert(executor.getName().length(), "_shrubbery");
+    std::ofstream outFile(fileName.insert(0, "./").c_str());
+
+outFile << "             /\\"<< std::endl;
+outFile << "            <  >"<< std::endl;
+outFile << "             \\/"<< std::endl;
+outFile << "             /\\"<< std::endl;
+outFile << "            /  \\"<< std::endl;
+outFile << "           /++++\\"<< std::endl;
+outFile << "          /  ()  \\"<< std::endl;
+outFile << "          /      \\"<< std::endl;
+outFile << "         /~`~`~`~`\\"<< std::endl;
+outFile << "        /  ()  ()  \\"<< std::endl;
+outFile << "        /          \\"<< std::endl;
+outFile << "       /*&*&*&*&*&*&\\"<< std::endl;
+outFile << "      /  ()  ()  ()  \\"<< std::endl;
+outFile << "      /              \\"<< std::endl;
+outFile << "     /++++++++++++++++\\"<< std::endl;
+outFile << "    /  ()  ()  ()  ()  \\"<< std::endl;
+outFile << "    /                  \\"<< std::endl;
+outFile << "   /~`~`~`~`~`~`~`~`~`~`\\"<< std::endl;
+outFile << "  /  ()  ()  ()  ()  ()  \\"<< std::endl;
+outFile << "  /*&*&*&*&*&*&*&*&*&*&*&\\"<< std::endl;
+outFile << " /                        \\"<< std::endl;
+outFile << "/,.,.,.,.,.,.,.,.,.,.,.,.,.\\"<< std::endl;
+outFile << "           |   |"<< std::endl;
+outFile << "          |`````|"<< std::endl;
+outFile << "          \\_____/"<< std::endl;
 }

@@ -6,21 +6,11 @@ SRCS += AForm.cpp
 SRCS += ShrubberyCreationForm.cpp
 SRCS += 
 SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
-SRCS += 
+
 
 HPP += Bureaucrat.hpp
 HPP += AForm.hpp
 HPP += ShrubberyCreationForm.hpp
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
-HPP += 
 HPP += 
 HPP += 
 HPP += 

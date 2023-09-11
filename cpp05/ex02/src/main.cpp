@@ -1,19 +1,20 @@
 #include "../Include/Bureaucrat.hpp"
 #include "../Include/AForm.hpp"
 #include "../Include/ShrubberyCreationForm.hpp"
+// #include "../Include/RobotomyRequestForm.hpp"
 
 
 int main()
 {
-    Bureaucrat Bob("Bob", 5);
     try
     {
-        // AForm Doc("Contract", 1, 1);
-        // AForm Doc("Contract", 10, 10);
+        Bureaucrat Bob("Bob", 1);
         ShrubberyCreationForm Test("Arbre");
-        // std::cout << Doc;
-        // Bob.signForm(Doc);
-        // std::cout << Doc;
+        std::cout << Test;
+        Bob.signForm(Test);
+        std::cout << Test;
+        // RobotomyRequestForm Robot("bip");
+        Test.execute(Bob);
 
     }
     catch(const std::exception& e)

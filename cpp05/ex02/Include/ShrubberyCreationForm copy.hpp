@@ -1,6 +1,7 @@
 #ifndef SHRUBBERYCREATIONFORM
     #define SHRUBBERYCREATIONFORM  
     #include "./AForm.hpp"
+    #include <fstream>
 
 
 class AForm;
@@ -12,10 +13,9 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(ShrubberyCreationForm &cpy);
         ~ShrubberyCreationForm();
         ShrubberyCreationForm &operator=(ShrubberyCreationForm &cpy);
+        
+        void	execute(const Bureaucrat &executor) const;
 
-
-    private:
-    
 };
 
 #endif

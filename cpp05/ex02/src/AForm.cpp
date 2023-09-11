@@ -49,6 +49,7 @@ int AForm::getSignGrade() const
 int AForm::getExecuteGrade() const
 {return (this->_executeGrade);}
 
+
 std::ostream& operator<<(std::ostream& os, AForm &cpy)
 {
     os << cpy.getName() << "Sign -> ";
