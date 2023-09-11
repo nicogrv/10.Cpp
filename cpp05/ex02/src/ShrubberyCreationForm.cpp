@@ -21,8 +21,10 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &o
 
 void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-    if (this->getExecuteGrade() < executor.getGrade())
+    if (this->getExecuteGrade() < executor.getGrade() )
         throw AForm::GradeTooLowException("The bureaucrat doesn't have the grade to execute\n");
+    else if (!this->getSign())
+        throw AForm::GradeTooLowException("The contract is not signed \n");
 
     std::string fileName = executor.getName().insert(executor.getName().length(), "_shrubbery");
     std::ofstream outFile(fileName.insert(0, "./").c_str());

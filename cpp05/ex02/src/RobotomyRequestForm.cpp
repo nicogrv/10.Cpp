@@ -1,38 +1,36 @@
 #include "../Include/RobotomyRequestForm.hpp"
 
-dRobotomyRequestForm::dRobotomyRequestForm(std::string name) : AForm(name, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string name) : AForm(name, 72, 45)
 {
-    std::cout << "New \"dRobotomyRequestForm\"" << name << std::endl;
+    std::cout << "New \"RobotomyRequestForm\"" << name << std::endl;
 }
-dRobotomyRequestForm::dRobotomyRequestForm(dRobotomyRequestForm &cpy) : AForm(cpy.getName(), 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy) : AForm(cpy.getName(), 72, 45)
 {
-    std::cout << "cpy \"dRobotomyRequestForm\"" << std::endl;
+    std::cout << "cpy \"RobotomyRequestForm\"" << std::endl;
 }
-dRobotomyRequestForm::~dRobotomyRequestForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Delete \"dRobotomyRequestForm\"" << this->getName() << std::endl;
+    std::cout << "Delete \"RobotomyRequestForm\"" << this->getName() << std::endl;
 }
-dRobotomyRequestForm &dRobotomyRequestForm::operator=(dRobotomyRequestForm &obj)
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
 {
 	(void)	obj;
 	return (*this);
 }
 
 
-void	dRobotomyRequestForm::execute(const Bureaucrat &executor) const
+void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-    if (this->getExecuteGrade() < executor.getGrade())
+    if (this->getExecuteGrade() < executor.getGrade() )
         throw AForm::GradeTooLowException("The bureaucrat doesn't have the grade to execute\n");
-    clock_t start_time = clock(); // Enregistrez le temps de début
+    else if (!this->getSign())
+        throw AForm::GradeTooLowException("The contract is not signed \n");
+    int start_time = clock(); // Enregistrez le temps de début
 
-    // Placez ici le code que vous souhaitez chronométrer
-
-    clock_t end_time = clock(); // Enregistrez le temps de fin
-    double elapsed_time = static_cast<double>(end_time - start_time) / CLOCKS_PER_SEC * 1000.0; // Convertissez le temps en millisecondes
-
-    std::cout << "Temps écoulé en millisecondes : " << elapsed_time << " ms" << std::endl;
-
-    return 0;
+    if (start_time % 2 == 0)
+        std::cout << "BIZZ: " << executor.getName() << " a ete robotomisée" << std::endl;
+    else
+        std::cout << executor.getName() << " n'a pas ete robotomisée..." << std::endl;
 
 
 }

@@ -34,6 +34,7 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
     if (this->_signGrade < bureaucrat.getGrade())
         throw AForm::GradeTooLowException("The bureaucrat doesn't have the grade to sign\n");
     this->_sign = true;
+    std::cout << bureaucrat.getName() << " Signe " << this->getName() << std::endl;
 }
 
 
