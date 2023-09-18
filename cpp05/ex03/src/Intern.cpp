@@ -27,21 +27,23 @@ Intern &Intern::operator=(Bureaucrat &cpy)
 	return (*this);
 }
 
-AForm *Intern::makeForm(std::string name,std::string cible)
+AForm *Intern::makeForm(std::string cible,std::string name)
 {
 	std::string listForm[] = {"robotomy request", "presidential pardon", "shrubbery creationForm"};
+	AForm		*(*Instance[])(std::string)	= {&ShrubberyCreationForm::NewForm, &RobotomyRequestForm::NewForm, &PresidentialPardonForm::NewForm};
+	AForm	*form;
 
 	for (unsigned long i = 0; i < sizeof(listForm) / sizeof(listForm[0]); i++)
 	{
-		if (name == listForm[i])
+		// std::cout << cible << "\t" << listForm[i] << std::endl; 
+		if (cible == listForm[i])
 		{
-			try
-			{
-					
-			}
+			form = Instance[i](name);
+			if (!form)
+				return (NULL);
+			else
+				return (form);
 		}
 	}
-	(void) cible;
-
 	return (NULL);
 }

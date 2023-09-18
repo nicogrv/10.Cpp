@@ -14,6 +14,7 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm &operator=(RobotomyRequestForm &cpy);
         
         void	execute(const Bureaucrat &executor) const;
+        static AForm *NewForm(std::string name);
 
 };
 

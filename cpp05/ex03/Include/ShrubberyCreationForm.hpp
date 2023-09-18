@@ -15,6 +15,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm &operator=(ShrubberyCreationForm &cpy);
         
         void	execute(const Bureaucrat &executor) const;
+        static AForm *NewForm(std::string name);
 
 };
 

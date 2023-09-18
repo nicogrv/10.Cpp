@@ -34,3 +34,11 @@ void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 
 
 }
+
+AForm *RobotomyRequestForm::NewForm(std::string name)
+{
+    AForm *form;
+    form = new RobotomyRequestForm(name);
+    std::cout << "New alloc \"RobotomyRequestForm\"" << name << std::endl;
+    return form;
+}

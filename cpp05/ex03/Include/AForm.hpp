@@ -10,7 +10,7 @@ class AForm
     public:
         AForm(std::string name, int const signGrade, int const executeGrade);
         AForm(AForm &cpy);
-        ~AForm();
+        virtual ~AForm();
         AForm &operator=(AForm &cpy);
 
         std::string const getName() const;
@@ -19,8 +19,7 @@ class AForm
         int getExecuteGrade() const;
 
         void beSigned(Bureaucrat &bureaucrat);
-
-
+        // virtual AForm *NewForm(std::string name) = 0;
         virtual void	execute(const Bureaucrat &executor) const = 0;
         
         class GradeTooHighException : public std::exception 

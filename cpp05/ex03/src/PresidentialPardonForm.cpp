@@ -28,3 +28,11 @@ void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
     else
         std::cout << executor.getName() << " a été pardonnée par Zaphod Beeblebrox." << std::endl;
 }
+
+AForm *PresidentialPardonForm::NewForm(std::string name)
+{
+    AForm *form;
+    form = new PresidentialPardonForm(name);
+    std::cout << "New alloc\"PresidentialPardonForm\"" << name << std::endl;
+    return form;
+}

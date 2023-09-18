@@ -15,6 +15,7 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm &operator=(PresidentialPardonForm &cpy);
         
         void	execute(const Bureaucrat &executor) const;
+        static AForm *NewForm(std::string name);
 
 };
 

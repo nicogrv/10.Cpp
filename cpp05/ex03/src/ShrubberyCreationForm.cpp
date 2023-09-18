@@ -55,3 +55,12 @@ outFile << "           |   |"<< std::endl;
 outFile << "          |`````|"<< std::endl;
 outFile << "          \\_____/"<< std::endl;
 }
+
+
+AForm *ShrubberyCreationForm::NewForm(std::string name)
+{
+    AForm *form;
+    form = new ShrubberyCreationForm(name);
+    std::cout << "New alloc \"ShrubberyCreationForm\"" << name << std::endl;
+    return form;
+}
