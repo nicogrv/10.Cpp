@@ -27,5 +27,4 @@ void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
         throw AForm::GradeTooLowException("The contract is not signed \n");
     else
         std::cout << executor.getName() << " a été pardonnée par Zaphod Beeblebrox." << std::endl;
-
 }
