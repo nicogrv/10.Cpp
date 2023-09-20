@@ -21,17 +21,7 @@ Dog::~Dog()
 	std::cout << "Dog dead (" << type << ")" << std::endl;
 }
 
-std::string Dog::getType() const
+void Dog::makeSound() const
 {
-	return (this->type);
-}
-void		Dog::setType(std::string type)
-{
-	this->type = type;
-	return ;
-}
-
-void		Dog::makeSound() const
-{
-	std::cout << "Wouaf !" << std::endl;
+	std::cout << "WOUAF" << std::endl;
 }

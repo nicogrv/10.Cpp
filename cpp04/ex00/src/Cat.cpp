@@ -22,17 +22,7 @@ Cat::~Cat()
 	std::cout << "Cat dead (" << type << ")" << std::endl;
 }
 
-std::string Cat::getType() const
+void Cat::makeSound() const
 {
-	return (this->type);
-}
-void		Cat::setType(std::string type)
-{
-	this->type = type;
-	return ;
-}
-
-void		Cat::makeSound() const
-{
-	std::cout << "Miaou !" << std::endl;
+	std::cout << "MIAOU" << std::endl;
 }

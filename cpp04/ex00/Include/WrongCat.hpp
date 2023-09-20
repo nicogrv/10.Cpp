@@ -9,15 +9,8 @@ class WrongCat : public WrongAnimal
 		WrongCat();
 		WrongCat(const WrongCat &src);
 		WrongCat	&operator=(const WrongCat &src);
-		virtual ~WrongCat();
-
-
-		std::string getType() const;
-		void		setType(std::string type);
-		void		makeSound() const;
-
-	protected:
-		std::string type;
+		~WrongCat();
+		void makeSound() const;
 
 };
 

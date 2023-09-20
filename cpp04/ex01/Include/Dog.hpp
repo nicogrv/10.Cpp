@@ -10,22 +10,13 @@ class Dog : public Animal
 		Dog();
 		Dog(const Dog &src);
 		Dog	&operator=(const Dog &src);
-		virtual ~Dog();
-
-
-		std::string getType() const;
-		void		setType(std::string type);
-
-		std::string getIdeas() const;
-		void		setIdeas(std::string Ideas);
-		virtual void		makeSound() const;
-
-	protected:
-		std::string type;
+		~Dog();
+		void makeSound() const;
+		std::string getBrain(int index) const;
+		void setBrain(std::string Ideas, int index);
 
 	private:
-		Brain *cerv;
-
+		Brain *brain;
 };
 
 

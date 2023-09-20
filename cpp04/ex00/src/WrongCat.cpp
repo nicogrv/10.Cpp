@@ -22,17 +22,7 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat dead (" << type << ")" << std::endl;
 }
 
-std::string WrongCat::getType() const
+void WrongCat::makeSound() const
 {
-	return (this->type);
-}
-void		WrongCat::setType(std::string type)
-{
-	this->type = type;
-	return ;
-}
-
-void		WrongCat::makeSound() const
-{
-	std::cout << "WrongMiaou !" << std::endl;
+	std::cout << "*WRONG CAT SOUND*" << std::endl;
 }

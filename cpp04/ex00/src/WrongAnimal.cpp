@@ -31,17 +31,13 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "WrongAnimal dead (" << type << ")" << std::endl;
 }
 
-std::string WrongAnimal::getType() const
+std::string WrongAnimal::getType(void) const
 {
 	return (this->type);
 }
-void		WrongAnimal::setType(std::string type)
+
+void WrongAnimal::makeSound() const
 {
-	this->type = type;
-	return ;
+	std::cout << "*WRONG SOUND*" << std::endl;
 }
 
-void		WrongAnimal::makeSound() const
-{
-	std::cout << "Wrong NO SOUND " << std::endl;
-}

@@ -3,51 +3,54 @@
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat life (Cat)" << std::endl;
+	this->brain = new Brain();
 	this->type = "Cat";
-	this->cerv = new Brain();
 }
 Cat::Cat(const Cat &src) : Animal("Cat")
 {
-	*this = src;
-	this->cerv = new Brain();
+	this->type = src.type;
+	this->brain = new Brain;
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = src.brain->ideas[i];
 	std::cout << "Cat life copy (" << this->type << ")" << std::endl;
 }
 Cat	&Cat::operator=(const Cat &src)
 {
-	std::cout << "Cat = opperator" << std::endl;
-	if (!this->cerv)
-		this->cerv = new Brain();
 	this->type = src.type;
-	*(this->cerv) = *(src.cerv);
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = src.brain->ideas[i];
+	std::cout << "Cat = opperator" << std::endl;
 	return (*this);
 
 }
 Cat::~Cat()
 {
-	delete this->cerv;
+	// std::cout << this->brain->ideas[0] << std::endl;
+	if (this->brain)
+		delete this->brain;
 	std::cout << "Cat dead (" << type << ")" << std::endl;
 }
 
-std::string Cat::getType() const
+void Cat::makeSound() const
 {
-	return (this->type);
-}
-void		Cat::setType(std::string type)
-{
-	this->type = type;
-	return ;
+	std::cout << "MIAOU" << std::endl;
 }
 
-void		Cat::makeSound() const
+void Cat::setBrain(std::string Ideas, int index)
 {
-	std::cout << "Miaou !" << std::endl;
-}
+	// std::cout << Ideas << "\t" << this->brain->indexOfIdeas << std::endl; 
+	if (0 <= index && index <= 99)
+	{
+		this->brain->ideas[index] = Ideas;
+		return ;
+	}
+	std::cout << "Bad Index" << std::endl;
 
-std::string Cat::getIdeas() const
-{	
-	return (this->cerv->getIdeas());
 }
-void		Cat::setIdeas(std::string Ideas)
+std::string Cat::getBrain(int index) const
 {
-	this->cerv->setIdeas(Ideas);
+	if (0 <= index && index <= 99)
+		return this->brain->ideas[index];
+	std::cout << "Bad Index" << std::endl;
+	return NULL;
 }

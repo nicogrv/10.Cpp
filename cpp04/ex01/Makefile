@@ -5,16 +5,35 @@ SRCS += Animal.cpp
 SRCS += Dog.cpp
 SRCS += Cat.cpp
 SRCS += Brain.cpp
-SRCS += WrongAnimal.cpp
-SRCS += WrongCat.cpp
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
 SRCS += 
 
 HPP += Animal.hpp
 HPP += Cat.hpp
 HPP += Dog.hpp
 HPP += Brain.hpp
-HPP += WrongAnimal.hpp
-HPP += WrongCat.hpp
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
 HPP += 
 HPP += 
 
@@ -27,7 +46,7 @@ HEAD_PATH += -I ./Include
 
 NAME = ex01
 CC = c++
-CFLAGS = -fsanitize=address -g3 -std=c++98 -Wall -Werror -Wextra -I ./
+CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
 vpath %.cpp ${SRC_PATH}    
 vpath %.hpp ${HEAD_PATH}

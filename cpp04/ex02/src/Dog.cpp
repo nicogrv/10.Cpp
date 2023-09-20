@@ -2,48 +2,55 @@
 
 Dog::Dog() : Animal("Dog")
 {
-	this->type = "Dog";
 	std::cout << "Dog life (Dog)" << std::endl;
-	this->cerv = new Brain();
+	this->brain = new Brain();
+	this->type = "Dog";
 }
 Dog::Dog(const Dog &src) : Animal("Dog")
 {
-	*this = src;
-	std::cout << "Dog life copy (Dog)" << std::endl;
+	this->type = src.type;
+	this->brain = new Brain;
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = src.brain->ideas[i];
+	std::cout << "Dog life copy (" << this->type << ")" << std::endl;
 }
 Dog	&Dog::operator=(const Dog &src)
 {
 	this->type = src.type;
+	for (int i = 0; i < 100; i++)
+		this->brain->ideas[i] = src.brain->ideas[i];
 	std::cout << "Dog = opperator" << std::endl;
 	return (*this);
+
 }
 Dog::~Dog()
 {
-	delete this->cerv;
+	// std::cout << this->brain->ideas[0] << std::endl;
+	if (this->brain)
+		delete this->brain;
 	std::cout << "Dog dead (" << type << ")" << std::endl;
-
 }
 
-std::string Dog::getType() const
+void Dog::makeSound() const
 {
-	return (this->type);
-}
-void		Dog::setType(std::string type)
-{
-	this->type = type;
-	return ;
+	std::cout << "MIAOU" << std::endl;
 }
 
-void		Dog::makeSound() const
+void Dog::setBrain(std::string Ideas, int index)
 {
-	std::cout << "Wouaf !" << std::endl;
-}
+	// std::cout << Ideas << "\t" << this->brain->indexOfIdeas << std::endl; 
+	if (0 <= index && index <= 99)
+	{
+		this->brain->ideas[index] = Ideas;
+		return ;
+	}
+	std::cout << "Bad Index" << std::endl;
 
-std::string Dog::getIdeas() const
-{	
-	return (this->cerv->getIdeas());
 }
-void		Dog::setIdeas(std::string Ideas)
+std::string Dog::getBrain(int index) const
 {
-	this->cerv->setIdeas(Ideas);
+	if (0 <= index && index <= 99)
+		return this->brain->ideas[index];
+	std::cout << "Bad Index" << std::endl;
+	return NULL;
 }

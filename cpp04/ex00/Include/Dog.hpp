@@ -9,16 +9,8 @@ class Dog : public Animal
 		Dog();
 		Dog(const Dog &src);
 		Dog	&operator=(const Dog &src);
-		virtual ~Dog();
-
-
-		std::string getType() const;
-		void		setType(std::string type);
-		virtual void		makeSound() const;
-
-	protected:
-		std::string type;
-
+		~Dog();
+		void makeSound() const;
 };
 
 

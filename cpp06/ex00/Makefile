@@ -1,13 +1,30 @@
 SHELL = /bin/bash
 
 SRCS += main.cpp
-SRCS += Dog.cpp
-SRCS += Animal.cpp
-SRCS += Cat.cpp
+SRCS += ScalarConverter.cpp
+SRCS += other.cpp
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
 
-HPP += Animal.hpp
-HPP += Dog.hpp
-HPP += Cat.hpp
+HPP += ScalarConverter.hpp
+HPP += other.hpp
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
 
 OBJS = ${patsubst %.cpp, ${OBJS_PATH}/%.o, ${SRCS}}
 
