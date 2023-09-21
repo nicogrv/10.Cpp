@@ -4,5 +4,6 @@
 int main(int c, char **v)
 {
 	(void) c;
-	ScalarConverter::convert(v[1]);
+	if (c == 2)
+		ScalarConverter::convert(v[1]);
 }
