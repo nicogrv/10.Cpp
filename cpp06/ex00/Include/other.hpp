@@ -12,6 +12,7 @@
 
 	int ft_strlen(char *str);
 	int ft_is_what(char *str);
+	int	ft_atoi(char *str);
 
 
 

@@ -33,7 +33,6 @@ int ft_is_what(char *str)
 		return (_Char);
 	if (str[ft_strlen(str)-1] == 'f')
 		F = true;
-	std::cout << str[ft_strlen(str)-1] << std::endl;
 	while (str && str[++i])
 	{
 		if (('0' <= str[i] && str[i] <= '9'))
@@ -50,7 +49,6 @@ int ft_is_what(char *str)
 			return (_Error);
 		
 	}
-	std::cout << F << "\t" << point << std::endl;
 	if (F && point && nb)
 		return (_Float);
 	if (!F && !point && nb)
@@ -59,4 +57,33 @@ int ft_is_what(char *str)
 		return (_Double);
 	return (_Error);
 		
+}
+
+
+int	ft_atoi(char *str)
+{
+	int	i;
+	int	signe;
+	int	nb;
+
+	signe = 1;
+	i = 0;
+	nb = 0;
+	while (('\t' <= str[i] && str[i] <= '\r') || (str[i] == ' '))
+	{
+		i++;
+	}
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		i++;
+		signe = -signe;
+	}
+	while ('0' <= str[i] && str[i] <= '9')
+	{
+		nb = nb * 10 + str[i] - 48;
+		i++;
+	}
+	return (nb * signe);
 }
