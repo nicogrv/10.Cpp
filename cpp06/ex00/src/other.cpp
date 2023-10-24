@@ -18,6 +18,25 @@ bool ft_is_num(char ch)
 	return (false);
 }
 
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s1 || !s2)
+		return -42;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+
+
 int ft_is_what(char *str)
 {
 	int i = -1;
@@ -25,10 +44,12 @@ int ft_is_what(char *str)
 	bool F = false;
 	bool nb = false;
 
-	// if (str == "-inff" || str == "+inff")
-	// 	return (_Inff);
-	// if (str == "-inf" || str == "+inf")
-	// 	return (_Inf);
+	if (ft_strcmp("-inff", str) || ft_strcmp("-inf", str))
+		return (_NInf);
+	if (ft_strcmp("+inff", str) || ft_strcmp("+inf", str) || ft_strcmp("inf", str) || ft_strcmp("inff", str))
+		return (_PInf);
+	if (ft_strcmp("nan", str) || ft_strcmp("nanf", str))
+		return (_Nan);
 	if (str && ft_strlen(str) == 3 && str[0] == '\'' && str[ft_strlen(str)-1] =='\'')
 		return (_Char);
 	if (str[ft_strlen(str)-1] == 'f')
@@ -60,6 +81,8 @@ int ft_is_what(char *str)
 }
 
 
+
+
 int	ft_atoi(char *str)
 {
 	int	i;
@@ -70,9 +93,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	nb = 0;
 	while (('\t' <= str[i] && str[i] <= '\r') || (str[i] == ' '))
-	{
 		i++;
-	}
 	if (str[i] == '+')
 		i++;
 	else if (str[i] == '-')
