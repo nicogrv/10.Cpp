@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 
 SRCS += main.cpp
-SRCS += xArray.cpp
+SRCS += Array.cpp
 SRCS +=
 SRCS += 
 SRCS += 
