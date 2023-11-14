@@ -28,7 +28,7 @@ void Span::addNumber(const int N) {
 		throw (outOfRange("Out of range add"));
 	this->tab[this->indexTab] = N;
 	// for (unsigned int i = 0; i < this->indexTab; i++)
-	// 	std::cout << this->tab[i] << std::endl;
+	// 	std::cout << "coucou " << this->tab[i] << std::endl;
 	// std::cout << std::endl;
 	this->indexTab++;
 }	
@@ -61,4 +61,10 @@ int Span::longestSpan(void) {
 	}
 	return (max - min);
 
+}
+
+void Span::displayTab(void) {
+	for (unsigned int i = 0; i < this->length;i++) {
+		std::cout << this->tab[i] << std::endl;
+	}
 }

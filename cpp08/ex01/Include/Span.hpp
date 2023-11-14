@@ -1,6 +1,8 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 # include <iostream>
+# include <vector>
+
 
 class outOfRange : public std::exception 
 {
@@ -14,6 +16,8 @@ class outOfRange : public std::exception
 		const char *_error;
 };
 
+
+
 class Span 
 {
 	public:
@@ -22,9 +26,15 @@ class Span
 		~Span();
 		Span	&operator=(const Span &src);
 
-		void addNumber(const int N);	
+		void addNumber(const int N);
+		template <typename Iterator>
+		void addMultiNumber(Iterator begin, Iterator end) {
+			for (Iterator it = begin; it != end; ++it)
+				addNumber(*it);
+		}
 		int shortestSpan(void);
 		int longestSpan(void);
+		void displayTab(void);
 	private:
 		Span();
 		int *tab;
