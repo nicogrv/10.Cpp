@@ -1,44 +1,24 @@
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef MUTANTSTACK
+# define MUTANTSTACK
 # include <iostream>
-# include <vector>
 
+template < typename T>
 
-class outOfRange : public std::exception 
+class MutantStack : public std::stack
 {
-	public:
-		outOfRange(const char *error) : _error(error) {}
-		const char* what() const throw() {
-			return _error;
-		}
-
 	private:
-		const char *_error;
+		/* data */
+	public:
+		MutantStack(/* args */);
+		~MutantStack();
 };
 
-
-
-class Span 
+MutantStack::MutantStack(/* args */)
 {
-	public:
-		Span(const unsigned int N);
-		Span(const Span &src);
-		~Span();
-		Span	&operator=(const Span &src);
+}
 
-		void addNumber(const int N);
-		template <typename Iterator>
-		void addMultiNumber(Iterator begin, Iterator end) {
-			for (Iterator it = begin; it != end; ++it)
-				addNumber(*it);
-		}
-		int shortestSpan(void);
-		int longestSpan(void);
-		void displayTab(void);
-	private:
-		Span();
-		int *tab;
-		unsigned int length;
-		unsigned int indexTab;
-};
+MutantStack::~MutantStack()
+{
+}
+
 #endif

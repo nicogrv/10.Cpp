@@ -1,78 +1,32 @@
-#include "../Include/Span.hpp"
-#include <cstdlib>
-#include <ctime>
-#include <vector>
+// #include "../Include/MutantStack.hpp"
+
+
+#include <iostream> 
+#include <stack>
 int main()
 {
-    srand(time(NULL));
-	{
+	std::stack<int> stack;
 
-		Span sp = Span(5);
-		try {
-			sp.addNumber(6);
-			sp.addNumber(3);
-			sp.addNumber(17);
-			sp.addNumber(9);
-			sp.addNumber(11);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-
-
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-	}
-
-
-	std::cout << std::endl << std::endl;
-
-	{
-		int size = 20000;
-		Span sp = Span(size);
-		try {
-			for (int i = 0; i < size; i++ ) {
-
-				const int value = rand();
-				sp.addNumber(value);
-				// std::cout << value << std::endl;
-			}
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-
-
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-	}
-	{
-
-		Span sp = Span(5);
-		try {
-			std::vector<int> numbers;
-			numbers.push_back(1);
-			numbers.push_back(2);
-			numbers.push_back(3);
-			numbers.push_back(4);
-			numbers.push_back(5);
-			sp.addMultiNumber(numbers.begin(), numbers.end());
-			std::cout << sp.shortestSpan() << std::endl;
-			std::cout << sp.longestSpan() << std::endl;
-			std::cout << std::endl;
-			sp.displayTab();
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-
-
-	}
-
-
-	std::cout << std::endl << std::endl;
-
+	// MutantStack<int> mstack;
+	// mstack.push(5);
+	// mstack.push(17);
+	// std::cout << mstack.top() << std::endl;
+	// mstack.pop();
+	// std::cout << mstack.size() << std::endl;
+	// mstack.push(3);
+	// mstack.push(5);
+	// mstack.push(737);
+	// //[...]
+	// mstack.push(0);
+	// MutantStack<int>::iterator it = mstack.begin();
+	// MutantStack<int>::iterator ite = mstack.end();
+	// ++it;
+	// --it;
+	// while (it != ite)
+	// {
+	// std::cout << *it << std::endl;
+	// ++it;
+	// }
+	// std::stack<int> s(mstack);
+	// return 0
 }
