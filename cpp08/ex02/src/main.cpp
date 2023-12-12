@@ -29,7 +29,7 @@ int main()
 	std::cout << std::endl << std::endl;
 
 	{
-		int size = 20;
+		int size = 20000;
 		Span sp = Span(size);
 		try {
 			for (int i = 0; i < size; i++ ) {

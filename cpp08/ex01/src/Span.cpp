@@ -14,7 +14,7 @@ Span::Span(const Span &src) {
 }
 
 Span::~Span() {
-
+	delete [] this->tab;
 }
 
 Span	&Span::operator=(const Span &src) {
@@ -27,9 +27,6 @@ void Span::addNumber(const int N) {
 	if (this->length <= this->indexTab)
 		throw (outOfRange("Out of range add"));
 	this->tab[this->indexTab] = N;
-	// for (unsigned int i = 0; i < this->indexTab; i++)
-	// 	std::cout << "coucou " << this->tab[i] << std::endl;
-	// std::cout << std::endl;
 	this->indexTab++;
 }	
 
