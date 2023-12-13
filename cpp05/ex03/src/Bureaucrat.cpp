@@ -22,7 +22,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat &Bureaucrat::operator=(Bureaucrat &cpy)
 {
     this->_grade = cpy._grade;
-c;    std::cout << "Bureaucrat ==" << std::endl;
+    std::cout << "Bureaucrat ==" << std::endl;
     return (*this);
 }
 std::ostream& operator<<(std::ostream& os, Bureaucrat &cpy)
