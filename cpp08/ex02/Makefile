@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 
 SRCS += main.cpp
-SRCS +=
+SRCS += 
 SRCS +=
 SRCS +=
 SRCS +=
@@ -14,7 +14,7 @@ SRCS +=
 SRCS += 
 
 HPP += MutantStack.hpp
-HPP += 
+HPP += MutantStack.tpp
 HPP += 
 HPP += 
 HPP += 
@@ -42,6 +42,7 @@ CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 
 vpath %.cpp ${SRC_PATH}    
 vpath %.hpp ${HEAD_PATH}
+vpath %.tpp ${SRC_PATH}
 
 all: ${NAME}
 
