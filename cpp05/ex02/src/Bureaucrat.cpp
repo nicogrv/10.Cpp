@@ -1,8 +1,7 @@
 #include "../Include/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
-    this->_name = name;
         if (grade < 1)
             throw Bureaucrat::GradeTooHighException("Error: The grade is too high\n");
         else if (150 < grade)
@@ -11,7 +10,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
             this->_grade = grade;
     std::cout << "New Bureaucrat: " << this->_name << "(" << this->_grade << ")" << std::endl;
 }
-Bureaucrat::Bureaucrat(Bureaucrat &cpy)
+Bureaucrat::Bureaucrat(Bureaucrat &cpy) : _name(cpy.getName())
 {
     *this = cpy;
     std::cout << "Bureaucrat Cpy" << std::endl;
@@ -23,7 +22,6 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat &Bureaucrat::operator=(Bureaucrat &cpy)
 {
     this->_grade = cpy._grade;
-    this->_name = cpy._name;
     std::cout << "Bureaucrat ==" << std::endl;
     return (*this);
 }

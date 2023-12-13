@@ -3,10 +3,16 @@
 
 #include <iostream> 
 #include <stack>
+#include <list>
 int main()
 {
 	std::stack<int> stack;
-
+	std::list<int> list;
+	stack.push(1);
+	stack.push(2);
+	stack.push(3);
+	stack.push(4);
+	std::cout << list.end;
 	// MutantStack<int> mstack;
 	// mstack.push(5);
 	// mstack.push(17);

@@ -3,6 +3,9 @@
 int main()
 {
     Bureaucrat Bob("Bob", 1);
+    Bureaucrat titou = Bob;
+    std::cout << "bob " << Bob.getName() << " " << Bob.getGrade() << std::endl;
+    std::cout << "titou " << titou.getName() << " " << titou.getGrade() <<  std::endl;
     try
     {
         Bureaucrat Tim("Tim", 0);

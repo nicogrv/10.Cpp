@@ -6,19 +6,13 @@ template < typename T>
 
 class MutantStack : public std::stack
 {
-	private:
-		/* data */
+
 	public:
-		MutantStack(/* args */);
-		~MutantStack();
+		MutantStack<T>();
+		~MutantStack<T>();
+
+		private:
 };
 
-MutantStack::MutantStack(/* args */)
-{
-}
-
-MutantStack::~MutantStack()
-{
-}
 
 #endif
