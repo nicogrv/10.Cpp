@@ -25,7 +25,7 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &cpy)
     std::cout << "Bureaucrat ==" << std::endl;
     return (*this);
 }
-std::ostream& operator<<(std::ostream& os, Bureaucrat &cpy)
+std::ostream& operator<<(std::ostream& os, Bureaucrat const &cpy)
 {
     os << cpy.getName() << ", brueaucrat garde " << cpy.getGrade() << std::endl;
     return (os);
