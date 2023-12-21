@@ -1,14 +1,40 @@
 SHELL = /bin/bash
 
-SRCS = main.cpp Bureaucrat.cpp 
+SRCS += main.cpp
+SRCS += Bureaucrat.cpp
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
+SRCS += 
 
-HPP = Bureaucrat.hpp
+HPP += Bureaucrat.hpp
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
+HPP += 
 
 OBJS = ${patsubst %.cpp, ${OBJS_PATH}/%.o, ${SRCS}}
 
-SRC_PATH += ./srcs/
-OBJS_PATH = ./srcs/_Objet
-HEAD_PATH += -I ./inc
+SRC_PATH += ./src/
+OBJS_PATH = ./src/_Objet
+HEAD_PATH += -I ./Include
+
 
 NAME = ex00
 CC = c++
@@ -59,6 +85,7 @@ LIGHTPURPLE='\033[1;35m'
 LIGHTCYAN='\033[1;36m'
 YELLOW='\033[1;33m'
 WHITE='\033[1;37m'
+
 
 ifndef COLORCOMPIL
 COLORCOMPIL = \

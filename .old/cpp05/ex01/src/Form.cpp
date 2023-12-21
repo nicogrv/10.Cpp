@@ -15,7 +15,7 @@ Form::Form(std::string name, int const signGrade, int const executeGrade)  : _na
     std::cout << "New Form: " << this->_name << std::endl;
 }
 
-Form::Form(Form &cpy) :  _name(cpy.getName()), _signGrade(cpy.getSignGrade()), _executeGrade(cpy.getExecuteGrade())
+Form::Form(Form const &cpy) :  _name(cpy.getName()), _signGrade(cpy.getSignGrade()), _executeGrade(cpy.getExecuteGrade())
 {
     this->_sign = cpy._sign;
 }
@@ -23,7 +23,7 @@ Form::~Form()
 {
     std::cout << "Delete Form: " << this->_name << std::endl;
 }
-Form &Form::operator=(Form &cpy) 
+Form &Form::operator=(Form const &cpy) 
 {
     (void) cpy;
     return (*this);

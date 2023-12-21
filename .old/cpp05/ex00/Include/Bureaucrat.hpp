@@ -16,29 +16,34 @@ class Bureaucrat
 
         void incrementGrade();
         void decrementGrade();
-
-        class GradeTooHighException : public std::exception 
-        {
-            public:
-                const char* what() const throw();
-				GradeTooHighException(const char *error);
-			private:
-				const char *_error;
-
-        };
-        class GradeTooLowException : public std::exception 
-        {
-            public:
-                const char* what() const throw();
-				GradeTooLowException(const char *error);
-			private:
-				const char *_error;
-
-        };
         
+		class GradeTooHighException;
+		class GradeTooLowException;
+
+
     private:
         const std::string   _name;
         int                 _grade;
+
+};
+
+class Bureaucrat::GradeTooHighException : public std::exception 
+{
+	public:
+		const char* what() const throw();
+		GradeTooHighException(const char *error);
+	private:
+		const char *_error;
+
+};
+
+class Bureaucrat::GradeTooLowException : public std::exception 
+{
+	public:
+		const char* what() const throw();
+		GradeTooLowException(const char *error);
+	private:
+		const char *_error;
 
 };
 
