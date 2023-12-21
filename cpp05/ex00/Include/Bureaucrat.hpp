@@ -7,12 +7,12 @@ class Bureaucrat
 {
     public:
         Bureaucrat(std::string name, int grade);
-        Bureaucrat(Bureaucrat &cpy);
+        Bureaucrat(Bureaucrat const &cpy);
         ~Bureaucrat();
-        Bureaucrat &operator=(Bureaucrat &cpy);
+        Bureaucrat &operator=(Bureaucrat const &cpy);
 
-        std::string getName() const;
-        int getGrade() const;
+        std::string     getName() const;
+        int             getGrade() const;
 
         void incrementGrade();
         void decrementGrade();
@@ -37,8 +37,8 @@ class Bureaucrat
         };
         
     private:
-        const std::string _name;
-        int _grade;
+        const std::string   _name;
+        int                 _grade;
 
 };
 

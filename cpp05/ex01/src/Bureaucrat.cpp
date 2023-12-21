@@ -10,7 +10,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
             this->_grade = grade;
     std::cout << "New Bureaucrat: " << this->_name << "(" << this->_grade << ")" << std::endl;
 }
-Bureaucrat::Bureaucrat(Bureaucrat &cpy) : _name(cpy.getName())
+Bureaucrat::Bureaucrat(Bureaucrat const &cpy) : _name(cpy.getName())
 {
     *this = cpy;
     std::cout << "Bureaucrat Cpy" << std::endl;
@@ -19,7 +19,7 @@ Bureaucrat::~Bureaucrat()
 {
     std::cout << "Bureaucrat destroy" << std::endl;
 }
-Bureaucrat &Bureaucrat::operator=(Bureaucrat &cpy)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &cpy)
 {
     this->_grade = cpy._grade;
     std::cout << "Bureaucrat ==" << std::endl;
