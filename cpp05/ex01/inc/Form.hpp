@@ -6,7 +6,7 @@
 /*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:36:54 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2023/12/21 19:03:10 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/08 17:18:10 by nicolasgriv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
     #include <iostream>
     #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
+/* ************************************************************************** */
 
 class Form
 {
@@ -49,7 +52,7 @@ class Form
 class Form::GradeTooLowException : public std::exception 
 {
 	public:
-		GradeTooLowException(char *message);
+		GradeTooLowException(const char *message);
 		const char *what() const throw();
 	private:
 		const char *_message;
@@ -58,7 +61,7 @@ class Form::GradeTooLowException : public std::exception
 class Form::GradeTooHighException : public std::exception 
 {
 	public:
-		GradeTooHighException(char *message);
+		GradeTooHighException(const char *message);
 		const char *what() const throw();
 	private:
 		const char *_message;
@@ -67,7 +70,5 @@ class Form::GradeTooHighException : public std::exception
 /* ************************************************************************** */
 
 std::ostream& operator<<(std::ostream& os, const Form& srcs);
-
-
 
 #endif

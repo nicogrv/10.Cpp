@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:32:09 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/12/21 17:16:20 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:19:50 by nicolasgriv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 	#define BUREAUCRAT_HPP
+	#include "./Form.hpp"
 	#include <iostream>
 	#include <string>
+
+class Form;
 
 /* ************************************************************************** */
 
@@ -35,8 +38,11 @@ class Bureaucrat
 		void		increment();
 		void		decrement();
 
+		void		signForm(Form &form);
+
 		class		GradeTooHighException;
 		class		GradeTooLowException;
+
 	
 	private:
 		const std::string	_name;

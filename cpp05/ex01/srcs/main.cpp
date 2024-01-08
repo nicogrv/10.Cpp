@@ -3,77 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:24:14 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/12/21 17:09:26 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:41:58 by nicolasgriv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 int main(void)
 {
-	
-	Bureaucrat nothing;
-	Bureaucrat justName("Alain");
-	Bureaucrat justGrade(9);
-	Bureaucrat everything("Benoit", 29);
-	
-	Bureaucrat equal;
-	equal = everything;
-	Bureaucrat copy(everything);
-	
-
-	std::cout << "nothing = \t" << nothing;
-	std::cout << "justName = \t" << justName;
-	std::cout << "justGrade = \t" << justGrade;
-	std::cout << "everything = \t" << everything;
-
-	std::cout << "---------------------------------------------------" << std::endl;
-	
-	std::cout << "equal = everything\t" << equal;
-	std::cout << "copy(everything)\t" << copy;
-
-	std::cout << "---------------------------------------------------" << std::endl;
-	
-	std::cout << "everything.getName() = " << everything.getName() << std::endl;
-	std::cout << "everything.getGrade() = " << everything.getGrade() << std::endl;
-
-	std::cout << "---------------------------------------------------" << std::endl;
-
-
-	Bureaucrat Low(149);
-
 	try 
 	{
-		std::cout << Low.getGrade() << std::endl;
-		Low.decrement();
-		std::cout << Low.getGrade() << std::endl;
-		Low.decrement();
-	} 
+		Form form;
+		std::cout << form << std::endl;
+
+	std::cout << "---------------------------------------------------" << std::endl;
+
+
+		Form customForm("Doc", 42, 12);
+		std::cout << customForm << std::endl;
+		Form copyForm(customForm);
+		std::cout << copyForm << std::endl;
+		
+	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << Low.getGrade() << std::endl;
-
+	
 	std::cout << "---------------------------------------------------" << std::endl;
-
-	Bureaucrat High(2);
-
+	
 	try 
 	{
-		std::cout << High.getGrade() << std::endl;
-		High.increment();
-		std::cout << High.getGrade() << std::endl;
-		High.increment();
-	} 
+		// Bureaucrat Boss(8);
+		Bureaucrat Boss(12);
+		Form cdd("CDD", 20, 15);
+		Form cdi("CDI", 10, 5);
+
+		std::cout << Boss << std::endl;
+		std::cout << cdd << std::endl;
+		std::cout << cdi << std::endl;
+		
+
+		cdd.beSigned(Boss);
+		// cdd.beSigned(Boss);
+		cdi.beSigned(Boss);
+		// cdi.beSigned(Boss);
+	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << High.getGrade() << std::endl;
 
+	std::cout << "---------------------------------------------------" << std::endl;
+
+	try 
+	{
+		// Bureaucrat Boss(8);
+		Bureaucrat Boss(12);
+		Form Interim("Interim", 20, 15);
+		Form Stage("Stage", 10, 5);
+
+		std::cout << Boss;
+		std::cout << Interim << std::endl;
+		std::cout << Stage << std::endl << std::endl;
+		
+		Boss.signForm(Interim);		
+		std::cout << Interim << std::endl << std::endl;
+		Boss.signForm(Stage);		
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }

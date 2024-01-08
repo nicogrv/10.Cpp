@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:29:50 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/12/21 17:15:38 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:30:47 by nicolasgriv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,17 @@ int			Bureaucrat::getGrade() const
 {
 	return this->_grade;
 }
+
+void		Bureaucrat::signForm(Form &form)
+{
+	try {
+		form.beSigned(*this);
+	}
+	catch (std::exception &e) {
+		throw;
+	}
+}
+
 
 /* ************************************************************************** */
 		

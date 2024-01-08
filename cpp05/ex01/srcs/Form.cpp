@@ -6,7 +6,7 @@
 /*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:13:16 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2023/12/21 19:15:25 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/08 17:33:36 by nicolasgriv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,14 @@ int 		Form::getGradeForExecute() const
 
 void	Form::beSigned(Bureaucrat &bureaucrat)
 {
-    if (bureaucrat.getGrade() <= this->getGardeForSign())
+    if (bureaucrat.getGrade() <= this->getGardeForSign() && !this->_signed)
     {
-        std::cout << this->getName() << " has sign" << std::endl;
+        std::cout << this->getName() << " has sign by " << bureaucrat.getName()<< std::endl;
         this->_signed = true;
+    }
+    else if (this->_signed) 
+    {
+        throw Form::GradeTooLowException("Already sign");
     }
     else
     {
@@ -67,18 +71,26 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 
 /* ************************************************************************** */
 
-Form::GradeTooLowException::GradeTooLowException(char *message) : _message(message)
+Form::GradeTooLowException::GradeTooLowException(const char *message) : _message(message)
 {}
 
-Form::GradeTooHighException::GradeTooHighException(char *message)  : _message(message)
+const char *Form::GradeTooLowException::what() const throw() {
+    return this->_message;
+}
+
+Form::GradeTooHighException::GradeTooHighException(const char *message)  : _message(message)
 {}
+
+const char *Form::GradeTooHighException::what() const throw() {
+    return this->_message;
+}
 
 /* ************************************************************************** */
 
 std::ostream& operator<<(std::ostream& os, const Form& srcs)
 {
-    os << "Form: " << srcs.getName() << "(Signed: " << srcs.getSigned() \
-    << ") Need " << srcs.getGardeForSign() << "for sign and " << srcs.getGardeForSign() \
-    << "for exeute";
+    os << "Form: " << srcs.getName() << " (Signed: " << srcs.getSigned() \
+    << ") Need " << srcs.getGardeForSign() << " for sign and " << srcs.getGradeForExecute() \
+    << " for exeute";
     return os;
 }
