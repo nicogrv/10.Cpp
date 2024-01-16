@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:13:16 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2024/01/08 17:47:31 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/16 18:49:19 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/AForm.hpp"
 
-AForm::AForm() : _name("Contract"), _gardeForSign(100), _gardeForExecute(50)
+AForm::AForm() : _name("Contract"), _gardeForSign(100), _gardeForExecute(50), _target("target")
 {
     this->_signed = false;
 }
 
-AForm::AForm(const AForm &copy) : _name(copy._name), _gardeForSign(copy._gardeForSign), _gardeForExecute(copy._gardeForExecute)
+AForm::AForm(const AForm &copy) : _name(copy._name), _gardeForSign(copy._gardeForSign), _gardeForExecute(copy._gardeForExecute), _target("target")
 {
     *this = copy;
 }
@@ -33,7 +33,12 @@ AForm    &AForm::operator=(const AForm &copy)
 
 /* ************************************************************************** */
 
-AForm::AForm(const std::string name, const int gardeForSign, const int gardeForExecute) : _name(name), _gardeForSign(gardeForSign), _gardeForExecute(gardeForExecute)
+AForm::AForm(const std::string name, const int gardeForSign, const int gardeForExecute) : _name(name), _gardeForSign(gardeForSign), _gardeForExecute(gardeForExecute), _target("target")
+{
+    this->_signed = false;
+}
+
+AForm::AForm(const std::string name, const int gardeForSign, const int gardeForExecute, const std::string target) : _name(name), _gardeForSign(gardeForSign), _gardeForExecute(gardeForExecute), _target(target)
 {
     this->_signed = false;
 }
@@ -52,6 +57,10 @@ int			AForm::getGardeForSign() const
 int 		AForm::getGradeForExecute() const 
 {   return this->_gardeForExecute;}
 
+std::string AForm::getTarget() const 
+{   return this->_target;}
+
+
 void	AForm::beSigned(Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() <= this->getGardeForSign() && !this->_signed)
@@ -68,6 +77,26 @@ void	AForm::beSigned(Bureaucrat &bureaucrat)
         throw AForm::GradeTooLowException("Grade is to low for sign this Aform");
     }
 }
+
+void 		AForm::execute(const Bureaucrat &executor) const
+{
+    if (!this->getSigned())
+        throw AForm::GradeTooLowException("Form not sign");
+    else if (this->getGradeForExecute() <= executor.getGrade())
+        throw AForm::GradeTooLowException("Not have a grade");
+    else
+    {
+        try
+        {
+            this->executeContract(executor);
+        }
+        catch (std::exception &e)
+        {
+            throw;
+        }
+    }
+}
+
 
 /* ************************************************************************** */
 
@@ -89,7 +118,7 @@ const char *AForm::GradeTooHighException::what() const throw() {
 
 std::ostream& operator<<(std::ostream& os, const AForm& srcs)
 {
-    os << "Form: " << srcs.getName() << " (Signed: " << srcs.getSigned() \
+    os << "Form: " << srcs.getName() << " target: " << srcs.getTarget() <<  " (Signed: " << srcs.getSigned() \
     << ") Need " << srcs.getGardeForSign() << " for sign and " << srcs.getGradeForExecute() \
     << " for exeute";
     return os;

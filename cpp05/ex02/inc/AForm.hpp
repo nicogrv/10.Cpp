@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:36:54 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2024/01/08 17:57:22 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/16 18:50:37 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@ class AForm
 		virtual ~AForm() = 0;
 
 		AForm(const std::string name, const int gardeForSign, const int gardeForExecute);
+		AForm(const std::string name, const int gardeForSign, const int gardeForExecute, const std::string target);
 
 		void		beSigned(Bureaucrat &bureaucrat);
+		void 		execute(const Bureaucrat &executor) const;
 
 		std::string	getName() const;
+		std::string	getTarget() const;
 		bool		getSigned() const;
 		int			getGardeForSign() const;
 		int 		getGradeForExecute() const;
@@ -39,12 +42,15 @@ class AForm
 		class	GradeTooHighException;
 		class	GradeTooLowException;
 
+	
 	private:
 		const std::string	_name;
-		bool				_signed;
 		const int			_gardeForSign;
 		const int			_gardeForExecute;
+		const std::string	_target; 
+		bool				_signed;
 
+		virtual void 		executeContract(const Bureaucrat &executor) const = 0;
 };
 
 /* ************************************************************************** */

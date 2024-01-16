@@ -12,13 +12,10 @@ class ShrubberyCreationForm : public AForm
         ~ShrubberyCreationForm();
         ShrubberyCreationForm   &operator=(const ShrubberyCreationForm &copy);
 
-
-        
-    
+        ShrubberyCreationForm(std::string target);
 
     private:
-        std::string _name;
-
+        void 		executeContract(const Bureaucrat &executor) const;
 };
 
 

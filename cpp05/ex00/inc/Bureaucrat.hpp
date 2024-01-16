@@ -6,11 +6,11 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:32:09 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/12/21 17:16:20 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:16:22 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
+#ifndef BUREAUCRAT_HPP	
 	#define BUREAUCRAT_HPP
 	#include <iostream>
 	#include <string>

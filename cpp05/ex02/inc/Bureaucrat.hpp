@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:32:09 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/08 17:50:38 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/16 18:36:30 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Bureaucrat
 		void		decrement();
 
 		void		signForm(AForm &form);
+		void		executeForm(const AForm &form);
 
 		class		GradeTooHighException;
 		class		GradeTooLowException;

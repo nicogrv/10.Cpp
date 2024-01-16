@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:29:50 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/08 17:49:12 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/16 18:47:40 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,26 @@ int			Bureaucrat::getGrade() const
 
 void		Bureaucrat::signForm(AForm &form)
 {
-	try {
+	try 
+	{
 		form.beSigned(*this);
 	}
-	catch (std::exception &e) {
+	catch (std::exception &e)
+	{
 		throw;
 	}
+}
+
+void		Bureaucrat::executeForm(const AForm &form)
+{
+	try 
+	{
+		form.execute(*this);
+	}
+	catch (std::exception &e)
+	{
+		throw ;
+	}		
 }
 
 
