@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:13:16 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2024/01/17 10:53:56 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:03:01 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,25 +65,30 @@ void	AForm::beSigned(Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() <= this->getGardeForSign() && !this->_signed)
     {
-        std::cout << this->getName() << " has sign by " << bureaucrat.getName()<< std::endl;
+        std::cout << bureaucrat.getName() << " signed " << this->getName() << std::endl;
         this->_signed = true;
     }
     else if (this->_signed) 
     {
+        std::cout << bureaucrat.getName() << " couldn t sign " << this->getName() << " because already sign" << std::endl;
         throw AForm::GradeTooLowException("Already sign");
     }
     else
     {
-        throw AForm::GradeTooLowException("Grade is to low for sign this Aform");
+        std::cout << bureaucrat.getName() << " couldn t sign " << this->getName() << " because grade is to low for sign this form" << std::endl;
+        throw AForm::GradeTooLowException("Grade is to low for sign this form");
     }
 }
 
 void 		AForm::execute(const Bureaucrat &executor) const
 {
-    if (!this->getSigned())
+    if (!this->getSigned()) {
+        std::cout << executor.getName() << " not execute " << this->getName() << "Beacause form not sign" << std::endl;
         throw AForm::GradeTooLowException("Form not sign");
+    }
     else if (this->getGradeForExecute() <= executor.getGrade())
     {
+        std::cout << executor.getName() << " not execute " << this->getName() << "Beacause bureaucrat not have a grade for execute"  << std::endl;
         throw AForm::GradeTooLowException("Not have a grade for execute");
     }
     else

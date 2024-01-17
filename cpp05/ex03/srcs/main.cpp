@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:24:14 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/17 14:39:43 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:06:26 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,29 @@ int main(void)
 		Intern someRandomIntern;
 		AForm* rrf;
 
-		std::cout << "---------------------------------------------------" << std::endl ;
+		std::cout << "1 ---------------------------------------------------" << std::endl ;
 		rrf = someRandomIntern.makeForm("shrubbery creation", "Titou");
 		rrf->beSigned(tim);
 		tim.executeForm(*rrf);
 		delete rrf;
 		
-		std::cout << "---------------------------------------------------" << std::endl ;
+		std::cout << "2 ---------------------------------------------------" << std::endl ;
 		rrf = someRandomIntern.makeForm("presidential pardon", "Pierre");
 		tim.signForm(*rrf);
 		tim.executeForm(*rrf);
 		delete rrf;
 		
-		std::cout << "---------------------------------------------------" << std::endl ;
+		std::cout << "3 ---------------------------------------------------" << std::endl ;
 		rrf = someRandomIntern.makeForm("robotomy request", "Victor");
 		tim.signForm(*rrf);
 		tim.executeForm(*rrf);
 		delete rrf;
 
-		std::cout << "---------------------------------------------------" << std::endl ;
+		std::cout << "4 ---------------------------------------------------" << std::endl ;
 		rrf = someRandomIntern.makeForm("NULL", "Tim");
 		delete rrf;
 		
-		std::cout << "---------------------------------------------------" << std::endl ;
+		std::cout << "5 ---------------------------------------------------" << std::endl ;
 	}
 	catch (std::exception &e)
 	{

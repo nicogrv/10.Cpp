@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:24:14 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/17 10:54:59 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:28:56 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(void)
 	try
 	{
 		Bureaucrat boss("Tim", 1);
+		Bureaucrat Intern("Tim", 120);
 		ShrubberyCreationForm ShrubberyForm("titou");
 		RobotomyRequestForm RobotomyForm("pierre");
 		PresidentialPardonForm PresidentialForm("victor");
@@ -47,7 +48,10 @@ int main(void)
 
 		std::cout << "---------------------------------------------------" << std::endl;
 
-		boss.executeForm(RobotomyForm);
+		Intern.executeForm(RobotomyForm);
+
+		std::cout << "---------------------------------------------------" << std::endl;
+
 	}
 	catch (std::exception &e)
 	{

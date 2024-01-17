@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:24:14 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/08 17:41:58 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/17 15:18:19 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,26 @@ int main(void)
 		Form form;
 		std::cout << form << std::endl;
 
-	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "1 ---------------------------------------------------" << std::endl;
 
 
 		Form customForm("Doc", 42, 12);
-		std::cout << customForm << std::endl;
+		std::cout << "customForm" << customForm << std::endl;
 		Form copyForm(customForm);
-		std::cout << copyForm << std::endl;
+		std::cout << "copyForm" << copyForm << std::endl;
 		
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
-	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "2 ---------------------------------------------------" << std::endl;
 	
 	try 
 	{
 		// Bureaucrat Boss(8);
-		Bureaucrat Boss(12);
+		Bureaucrat Boss("boss", 12);
 		Form cdd("CDD", 20, 15);
 		Form cdi("CDI", 10, 5);
 
@@ -55,15 +55,15 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 
-	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "3 ---------------------------------------------------" << std::endl;
 
 	try 
 	{
-		// Bureaucrat Boss(8);
-		Bureaucrat Boss(12);
+		// Bureaucrat Boss("boss",8);
+		Bureaucrat Boss("boss", 12);
 		Form Interim("Interim", 20, 15);
 		Form Stage("Stage", 10, 5);
 
@@ -73,11 +73,40 @@ int main(void)
 		
 		Boss.signForm(Interim);		
 		std::cout << Interim << std::endl << std::endl;
-		Boss.signForm(Stage);		
+		Boss.signForm(Stage);	
+		std::cout << Stage << std::endl << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
+
+	std::cout << "4 ---------------------------------------------------" << std::endl;
+
+	try 
+	{
+		Bureaucrat Boss("boss", 12);
+		Form Interim("Interim", 20, 15);
+		Form EgalInterim("EgalInterim", 11, 19);
+
+		std::cout << Boss;
+		std::cout << Interim << std::endl;
+		std::cout << EgalInterim << std::endl << std::endl;
+		
+		Boss.signForm(Interim);		
+		std::cout << Interim << std::endl;
+		std::cout << EgalInterim << std::endl << std::endl;
+
+		EgalInterim = Interim;
+		std::cout << "EgalInterim = Interim" << std::endl << std::endl; 		
+
+		std::cout << Interim << std::endl;
+		std::cout << EgalInterim << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+
 	return 0;
 }

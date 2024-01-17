@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:13:16 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2024/01/08 17:33:36 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/01/17 15:12:01 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,17 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() <= this->getGardeForSign() && !this->_signed)
     {
-        std::cout << this->getName() << " has sign by " << bureaucrat.getName()<< std::endl;
+        std::cout << bureaucrat.getName() << " signed " << this->getName() << std::endl;
         this->_signed = true;
     }
     else if (this->_signed) 
     {
+        std::cout << bureaucrat.getName() << " couldn t sign " << this->getName() << " because already sign" << std::endl;
         throw Form::GradeTooLowException("Already sign");
     }
     else
     {
+        std::cout << bureaucrat.getName() << " couldn t sign " << this->getName() << " because grade is to low for sign this form" << std::endl;
         throw Form::GradeTooLowException("Grade is to low for sign this form");
     }
 }

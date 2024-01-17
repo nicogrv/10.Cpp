@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 11:05:19 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/17 14:32:30 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:09:27 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,12 @@ AForm *Intern::makeForm(std::string nameOfTheForm, std::string target)
 	
 	for (unsigned int i = 0; i < sizeof(fonction) / sizeof(fonction[0]); i++)
 	{
-		if (fonction[i].nameOfTheFrom == nameOfTheForm) 
+		if (fonction[i].nameOfTheFrom == nameOfTheForm) {
+			std::cout << "\"" << nameOfTheForm << "\"" << " created" << std::endl;
 			return (fonction[i].fonction(target));
+		}
 	}
+	std::cout << "\"" << nameOfTheForm << "\"" << " is not good form" << std::endl;
 	return (NULL);
 	
 } 

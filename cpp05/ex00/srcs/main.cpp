@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:24:14 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/17 14:46:22 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:12:38 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main(void)
 	} 
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	std::cout << "End: " << Low.getGrade() << std::endl;
 
@@ -72,7 +72,7 @@ int main(void)
 	} 
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	std::cout << "End: " << High.getGrade() << std::endl;
 
