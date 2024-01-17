@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:03:29 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2024/01/16 18:51:08 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:31:52 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,13 @@ void 		RobotomyRequestForm::executeContract(const Bureaucrat &executor) const
 		std::cout << executor.getName() << " execute " << this->getName() << ": OK " << this->getTarget() << " has been robotomized" << std::endl;
 	else
 		std::cout << executor.getName() << " execute " << this->getName() << ": KO " << this->getTarget() << " has not been robotomized" << std::endl;
+}
+
+AForm *RobotomyRequestForm::createForm(std::string target)
+{
+	AForm *form;
+	
+	form = new RobotomyRequestForm(target);
+	std::cout << "New form: " << *form << std::endl;
+	return form;
 }

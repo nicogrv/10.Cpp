@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:24:14 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/12/21 17:09:26 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:46:22 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,19 @@ int main(void)
 	Bureaucrat justName("Alain");
 	Bureaucrat justGrade(9);
 	Bureaucrat everything("Benoit", 29);
-	
-	Bureaucrat equal;
-	equal = everything;
-	Bureaucrat copy(everything);
-	
-
 	std::cout << "nothing = \t" << nothing;
 	std::cout << "justName = \t" << justName;
 	std::cout << "justGrade = \t" << justGrade;
 	std::cout << "everything = \t" << everything;
 
 	std::cout << "---------------------------------------------------" << std::endl;
+	
+	Bureaucrat equal;
+	std::cout << "equal\t\t\t" << equal;
+	equal = everything;
+	Bureaucrat copy(everything);
+	
+
 	
 	std::cout << "equal = everything\t" << equal;
 	std::cout << "copy(everything)\t" << copy;
@@ -56,7 +57,7 @@ int main(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << Low.getGrade() << std::endl;
+	std::cout << "End: " << Low.getGrade() << std::endl;
 
 	std::cout << "---------------------------------------------------" << std::endl;
 
@@ -73,7 +74,8 @@ int main(void)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << High.getGrade() << std::endl;
+	std::cout << "End: " << High.getGrade() << std::endl;
+
 
 	return 0;
 }

@@ -13,6 +13,8 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm   &operator=(const ShrubberyCreationForm &copy);
 
         ShrubberyCreationForm(std::string target);
+        static AForm   *createForm(std::string target);
+
 
     private:
         void 		executeContract(const Bureaucrat &executor) const;

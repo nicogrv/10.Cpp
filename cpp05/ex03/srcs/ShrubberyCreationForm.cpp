@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:03:29 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2024/01/16 18:51:10 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:31:52 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 {}
 
 /* ************************************************************************** */
+
+AForm *ShrubberyCreationForm::createForm(std::string target)
+{
+	AForm *form;
+	
+	form = new ShrubberyCreationForm(target);
+	std::cout << "New form: " << *form << std::endl;
+	return form;
+}
 
 void 		ShrubberyCreationForm::executeContract(const Bureaucrat &executor) const 
 {

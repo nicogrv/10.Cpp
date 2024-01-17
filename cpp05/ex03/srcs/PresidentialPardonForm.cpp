@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:03:29 by nicolasgriv       #+#    #+#             */
-/*   Updated: 2024/01/16 18:50:57 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:31:52 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,13 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 void 		PresidentialPardonForm::executeContract(const Bureaucrat &executor) const
 {
 	std::cout << executor.getName() << " execute " << this->getName() << ": " << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+AForm *PresidentialPardonForm::createForm(std::string target)
+{
+	AForm *form;
+	
+	form = new PresidentialPardonForm(target);
+	std::cout << "New form: " << *form << std::endl;
+	return form;
 }

@@ -15,6 +15,7 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm   &operator=(const RobotomyRequestForm &copy);
 
         RobotomyRequestForm(std::string target);
+        static AForm   *createForm(std::string target);
 
     private:
         void 		executeContract(const Bureaucrat &executor) const;

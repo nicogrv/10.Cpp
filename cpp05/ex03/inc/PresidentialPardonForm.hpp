@@ -15,6 +15,7 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm   &operator=(const PresidentialPardonForm &copy);
 
         PresidentialPardonForm(std::string target);
+        static AForm   *createForm(std::string target);
 
     private:
         void 		executeContract(const Bureaucrat &executor) const;
