@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/22 12:24:11 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:48:10 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int main()
 {
+	// Serializer test;
 	Data data;
 	Data *returnData;
 	uintptr_t ptr;
