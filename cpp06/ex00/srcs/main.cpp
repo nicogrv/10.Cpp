@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/18 15:21:54 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:24:56 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int main(int c, char **v)
 	(void) c;
 	if (c != 2) 
 		return 1;
-	// ScalarConverter::convert(v[1]);
-	// return (0);
+	return ScalarConverter::convert(v[1]);
 
 
 	std::string nbr;
