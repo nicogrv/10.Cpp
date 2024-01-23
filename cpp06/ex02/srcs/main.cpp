@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:16:05 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/22 14:57:29 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:31:23 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ Base *generate()
 void identify(Base* p)
 {
 	if (dynamic_cast<A *>(p))
-			std::cout << "pA" << std::endl;
+			std::cout << "ptr A" << std::endl;
 	else if (dynamic_cast<B *>(p))
-		std::cout << "pB" << std::endl;
+		std::cout << "ptr B" << std::endl;
 	else if (dynamic_cast<C *>(p))
-		std::cout << "pC" << std::endl;
+		std::cout << "ptr C" << std::endl;
 }
 
 void identify(Base& p)
@@ -59,21 +59,21 @@ void identify(Base& p)
 	try
 	{
 		(void) dynamic_cast<A&>(p);
-		std::cout << "rA" <<std::endl;
+		std::cout << "ref A" <<std::endl;
 	}
 	catch (std::exception &e)
 	{}
-		try
+	try
 	{
 		(void) dynamic_cast<B&>(p);
-		std::cout << "rB" <<std::endl;
+		std::cout << "ref B" <<std::endl;
 	}
 	catch (std::exception &e)
 	{}
 	try
 	{
 		(void) dynamic_cast<C&>(p);
-		std::cout << "rC" <<std::endl;
+		std::cout << "ref C" <<std::endl;
 	} 
 	catch (std::exception &e)
 	{}

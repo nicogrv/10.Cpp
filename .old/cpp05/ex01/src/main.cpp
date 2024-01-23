@@ -11,10 +11,10 @@ int main()
         Form Doc("Contract", 1, 1);
         // Form salut = Doc;
 
-        Form salut();
-        salut = Doc;
+        // Form salut();
+        // salut = Doc;
         // Form Doc("Contract", 10, 10);
-        std::cout << "coucou " << salut;
+        // std::cout << "coucou " << salut;
         std::cout << Doc;
         Bob.signForm(Doc);
         std::cout << Doc;
