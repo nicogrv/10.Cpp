@@ -10,7 +10,7 @@ SRC_PATH += ./srcs/
 OBJS_PATH = ./srcs/_Objet
 HEAD_PATH += -I ./inc
 
-NAME = ex00
+NAME = convert
 CC = c++
 CFLAGS = -g -std=c++98 -Wall -Werror -Wextra -I ./
 

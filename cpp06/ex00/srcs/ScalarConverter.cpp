@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:41:46 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/18 15:17:01 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/23 16:03:54 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ std::string floatNeedZero(float nbr)
 void impossibleInt(std::string str, double nbr)
 {
 	(void) str;
-	if (nbr < -2147483648 || 2147483647 < nbr || std::isnan(nbr))
+	if (nbr < -2147483648 || 2147483647 < nbr - 1 || std::isnan(nbr) || static_cast<int>(nbr) != nbr)
 		std::cout << "int    : impossible" << std::endl;
 	else 
 		std::cout << "int    : " << static_cast<int>(nbr) << std::endl;
@@ -114,7 +114,7 @@ void impossibleInt(std::string str, double nbr)
 void	convertInt(std::string str)
 {
 	char *null;
-	float nbr = strtof(str.c_str(), &null);
+	double nbr = strtod(str.c_str(), &null);
 	std::string addZero = floatNeedZero(nbr);
 	
 	if (nbr < 0 || 127 < nbr || std::isnan(nbr))
@@ -142,7 +142,7 @@ void	convertFloat(std::string str)
 	else
 		std::cout << "char   : " << static_cast<char>(nbr) << std::endl;
 	impossibleInt(str, nbr);
-	std::cout << "FLOAT  : " << nbr << addZero << "f" << std::endl;
+	std::cout << "FLOAT  : " << std::fixed <<  nbr << addZero << "f" << std::endl;
 	std::cout << "double : " << static_cast<double>(nbr) << addZero << std::endl;
 }
 
