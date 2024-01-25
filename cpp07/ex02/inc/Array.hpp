@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:20:26 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/23 15:38:09 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:34:17 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Array
 	public:
 		Array()
 		{
-			this->lenght = 1;
-			this->tab = new T[1]();
+			this->lenght = 0;
+			this->tab = new T[0]();
 		}
 
 		~Array()

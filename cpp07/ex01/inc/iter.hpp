@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:23:42 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/22 16:42:24 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:31:58 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template <typename T, typename U>
 void iter(T array, int len, U fonction)
 {
 	for (int i = 0; i < len; i++)
-		array[i] = fonction(array[i]);
+		fonction(array[i]);
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:20:32 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/25 11:11:23 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:43:49 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 #include <iostream>
 
 
-int ft_addOne(int nb)
+void ft_addOne(int &nb)
 {
 	nb += 1;
-	return nb;
 }
 
-char ft_toUp(char c)
+void ft_toUp(char &c)
 {
-	return std::toupper(c);
+	c = std::toupper(c);
+}
+
+void ft_print(char c)
+{
+	std::cout << c;
 }
 
 
@@ -45,8 +49,7 @@ int main()
 	std::cout << text << std::endl << "(iter)" << std::endl;
 
 	iter(text, 27, ft_toUp);
-	for (int i = 0; i < 27; i++)
-		std::cout << text[i];
+	iter(text, 27, ft_print);
 	std::cout << std::endl;
 
 	std::cout << "---------------------------------------------------" << std::endl;

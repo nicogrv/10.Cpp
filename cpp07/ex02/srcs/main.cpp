@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:20:03 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/25 11:21:48 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 12:41:43 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,25 @@ void displayArray(Array<T> array, Array<T> array2, std::string name1, std::strin
 
 int main()
 {
+	std::cout << std::endl << "------------------Array_int(0)-------------------" << std::endl;
+	try
+	{
+		Array<int> Array_int;	
+		std::cout << "Array_int size : " << Array_int.size() << std::endl;
+		std::cout << "Array_int[0]: " << Array_int[0] << std::endl;
+		std::cout << "Array_int[0] = 15"  << std::endl;
+		Array_int[0] = 15;
+		std::cout << "Array_int[0]: " << Array_int[0] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	std::cout << std::endl << "------------------Array_int(1)-------------------" << std::endl;
 	
 	try
 	{
-		Array<int> Array_int;	
+		Array<int> Array_int(1);	
 		std::cout << "Array_int size : " << Array_int.size() << std::endl;
 		std::cout << "Array_int[0]: " << Array_int[0] << std::endl;
 		std::cout << "Array_int[0] = 15"  << std::endl;
@@ -54,7 +68,7 @@ int main()
 
 	try
 	{
-		Array<std::string> Array_string ;
+		Array<std::string> Array_string(1) ;
 		std::cout << "Array_string size : " << Array_string.size() << std::endl;
 		std::cout << "Array_string[0]: " << Array_string[0] << std::endl;
 		std::cout << "Array_string[0] = Bonjour les amis"  << std::endl;
