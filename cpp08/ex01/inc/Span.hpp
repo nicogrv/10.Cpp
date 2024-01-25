@@ -4,6 +4,7 @@
 # include <math.h>
 # include <climits>
 # include <vector>
+# include <deque>
 
 class Span {
 
@@ -21,6 +22,26 @@ class Span {
 
 		unsigned long getLenght();
 		void printTab();
+
+		template<typename T>
+		void	addNumbers(typename T::iterator	begin, typename T::iterator	end)
+		{
+			unsigned int sizeOfAdd = 0;
+			typename T::iterator	it = begin;
+
+			while (it != end)
+			{
+				sizeOfAdd++;
+				it++;
+			}
+			if (this->_lenght - this->_vec.size() < sizeOfAdd)
+				throw std::runtime_error("can't add numbers: not enough space");
+			while (begin != end)
+			{
+				this->_vec.push_back(*begin);
+				begin++;
+			}
+		}
 	
 	private:
 		const unsigned long	_lenght;

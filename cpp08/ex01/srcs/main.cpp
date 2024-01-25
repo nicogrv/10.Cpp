@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/25 11:53:58 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:56:11 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int main( void )
 
 	try
 	{
-		Span span(5);
+		Span span(192);
 		span.addNumber(2);
 		span.addNumber(-10);
 		span.addNumber(10);
@@ -104,5 +104,42 @@ int main( void )
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+
+	try
+	{
+		Span span(12345);
+		for (int i = 0; i < 12345; i++)
+			span.addNumber(i);
+		span.printTab();
+		std::cout << span.longestSpan() << std::endl;
+		std::cout << span.shortestSpan() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	{
+
+	Span span(6);
+	try
+	{
+		unsigned int tab[] = {1, 2};
+    	std::vector<unsigned int> vec1(tab, tab + sizeof(tab) / sizeof(tab[0]));
+		span.addNumbers<std::vector<unsigned int> >(vec1.begin(), vec1.end());
+		span.printTab();
+
+		unsigned int tab2[] = {1, 2, 3, 4, 6};
+    	std::vector<unsigned int> vec2(tab2, tab2 + sizeof(tab2) / sizeof(tab2[0]));
+		span.addNumbers<std::vector<unsigned int> >(vec2.begin(), vec2.end());
+		span.printTab();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		span.printTab();
+	}
+	}
+	
+
 	return 0;
 }
