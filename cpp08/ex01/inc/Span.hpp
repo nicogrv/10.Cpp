@@ -13,17 +13,17 @@ class Span {
 		Span(const Span &copy);
 		Span &operator=(const Span &copy);
 
-		Span(unsigned int N);
+		Span(unsigned long N);
 
 		void addNumber(int number);
 		int shortestSpan();
 		int longestSpan();
 
-		unsigned int getLenght();
+		unsigned long getLenght();
 		void printTab();
 	
 	private:
-		const unsigned int	_lenght;
+		const unsigned long	_lenght;
 		std::vector<int>	_vec;
 		
 };

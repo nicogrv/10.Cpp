@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/24 18:17:47 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:53:58 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int main( void )
 		span.addNumber(-10);
 		span.addNumber(10);
 		span.addNumber(6);
-		span.addNumber(-1);
+		span.addNumber(-2);
 		span.printTab();
 		std::cout << span.longestSpan() << std::endl;
 		std::cout << span.shortestSpan() << std::endl;
