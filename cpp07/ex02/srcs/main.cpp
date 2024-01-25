@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:20:03 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/23 15:36:57 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:21:48 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void displayArray(Array<T> array, Array<T> array2, std::string name1, std::strin
 		std::cout << i << ":" << array2[i] << " ";
 	std::cout << std::endl << std::endl;
 }
+
+
+
+
 
 int main()
 {
@@ -143,4 +147,39 @@ int main()
 	{
 		std::cout << "Error exception: " << e.what() << std::endl;
 	}
+
+	std::cout << std::endl << "------------------int(5)-------------------" << std::endl ;
+
+	try
+	{
+		Array<int> array(5);
+		
+		std::cout << "Int (null): ";
+		for (unsigned int i = 0; i < array.size(); i++)
+			std::cout << array[i] << ", ";
+		std::cout << std::endl;
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+		std::cout << std::endl << "------------------Char(5)-------------------" << std::endl ;
+
+	try
+	{
+		Array<char> array(5);
+		
+		std::cout << "Char (null): ";
+		for (unsigned int i = 0; i < array.size(); i++)
+			std::cout << array[i] << ", ";
+		std::cout << std::endl;
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
 }

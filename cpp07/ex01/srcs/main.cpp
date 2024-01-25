@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:20:32 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/23 17:18:20 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:11:23 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char ft_toUp(char c)
 
 int main()
 {
-	int arNb[5] = {0, 1, 2, 5, 10};
+	int arNb[5] = {0, 10, 222, 543, 1000};
 	for (int i = 0; i < 5; i++)
 		std::cout << arNb[i] << ", ";
 	std::cout << std::endl << "(iter)" << std::endl;

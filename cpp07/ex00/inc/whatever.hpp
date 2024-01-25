@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:08:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/22 16:16:59 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:10:03 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ T min(T &a, T &b)
 template <typename T>
 T max(T &a, T &b)
 {
-		if (a < b)
+	if (a < b)
 		return b;
 	return a;
 }
