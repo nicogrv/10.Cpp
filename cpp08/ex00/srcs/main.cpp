@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/24 13:55:06 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:38:01 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main( void )
 {
+	std::cout << "--------------------vector--------------------" << std::endl;
 	std::vector<int> vec;
 	vec.push_back(1);
 	vec.push_back(2);
@@ -31,7 +32,7 @@ int main( void )
 		std::cout << e.what() << std::endl;
 	}
 	
-	std::cout << "----------------------------------------" << std::endl;
+	std::cout << "--------------------deque--------------------" << std::endl;
 
 	std::deque<int> deque;
 	deque.push_back(10);
@@ -55,7 +56,7 @@ int main( void )
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "----------------------------------------" << std::endl;
+	std::cout << "--------------------list--------------------" << std::endl;
 
  	std::list<int> list;
 

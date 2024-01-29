@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/25 14:56:11 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:33:43 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 
 int main( void )
 {
+	try
+	{
+		Span span;
+		span.addNumber(1);
+		
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	std::cout << std::endl << "------------------------------------------" << std::endl;
 	try
 	{
 		Span span(3);
@@ -69,10 +81,11 @@ int main( void )
 	}
 
 	std::cout << std::endl << "------------------------------------------" << std::endl;
+	{
 
+	Span span(3);
 	try
 	{
-		Span span(3);
 		span.addNumber(1);
 		span.printTab();
 		span.addNumber(2);
@@ -84,6 +97,8 @@ int main( void )
 	catch (std::exception &e)
 	{
 		std::cout << "Error: " << e.what() << std::endl;
+		span.printTab();
+	}
 	}
 
 	std::cout << std::endl << "------------------------------------------" << std::endl;
@@ -105,12 +120,13 @@ int main( void )
 		std::cout << "Error: " << e.what() << std::endl;
 	}
 
+	std::cout << std::endl << "------------------------------------------" << std::endl;
 	try
 	{
 		Span span(12345);
 		for (int i = 0; i < 12345; i++)
 			span.addNumber(i);
-		span.printTab();
+		// span.printTab();
 		std::cout << span.longestSpan() << std::endl;
 		std::cout << span.shortestSpan() << std::endl;
 	}
@@ -120,6 +136,7 @@ int main( void )
 	}
 	{
 
+	std::cout << std::endl << "------------------------------------------" << std::endl;
 	Span span(6);
 	try
 	{
@@ -140,6 +157,14 @@ int main( void )
 	}
 	}
 	
-
+	std::cout << std::endl << "------------------------------------------" << std::endl;
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 	return 0;
 }
