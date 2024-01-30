@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/29 12:33:43 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:09:09 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ int main( void )
 	{
 		Span span(12345);
 		for (int i = 0; i < 12345; i++)
-			span.addNumber(i);
-		// span.printTab();
+			span.addNumber(i*i);
+		span.printTab();
 		std::cout << span.longestSpan() << std::endl;
 		std::cout << span.shortestSpan() << std::endl;
 	}
@@ -140,19 +140,20 @@ int main( void )
 	Span span(6);
 	try
 	{
+		span.addNumber(42);
 		unsigned int tab[] = {1, 2};
     	std::vector<unsigned int> vec1(tab, tab + sizeof(tab) / sizeof(tab[0]));
 		span.addNumbers<std::vector<unsigned int> >(vec1.begin(), vec1.end());
 		span.printTab();
 
-		unsigned int tab2[] = {1, 2, 3, 4, 6};
+		unsigned int tab2[] = {1, 2, 3, 4};
     	std::vector<unsigned int> vec2(tab2, tab2 + sizeof(tab2) / sizeof(tab2[0]));
 		span.addNumbers<std::vector<unsigned int> >(vec2.begin(), vec2.end());
 		span.printTab();
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error " << e.what() << '\n';
 		span.printTab();
 	}
 	}

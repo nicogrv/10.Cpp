@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 10:50:01 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/25 15:36:06 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:09:13 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,30 @@
 # include <list>
 # include <deque>
 # include <iostream>
+# include <algorithm>
 
 template <typename T>
 
-unsigned int easyfind(T find, int number)
+typename T::iterator	easyfind(T &find, int number)
 {
-	unsigned int			i;
-	typename T::iterator	it;
+	typename T::iterator it =  std::find(find.begin(), find.end(), number);
+	if (it != find.end())
+		return (it);
+	throw std::runtime_error("NO");
+}
 
-	i = 0;
-	for (it = find.begin(); it != find.end(); it++)
-	{
-		i++;
-		if (*it == number)
-			return (i);
-	}
-	throw std::runtime_error("no occurrence");
+	
+template <typename T>
+
+void printTab(T &tab)
+{
+	typename T::iterator	it = --tab.begin();
+
+	std::cout << "----==PrintTab==----" << std::endl;
+	while (++it != tab.end())
+		std::cout << &(*it) << ": " << *it << std::endl;
+	std::cout << "-----==------==-----" << std::endl << std::endl;
+
 }
 
 #endif
