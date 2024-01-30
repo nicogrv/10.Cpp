@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/30 12:09:09 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/30 18:45:56 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,9 @@ int main( void )
 		span.addNumber(6);
 		span.addNumber(-2);
 		span.printTab();
-		std::cout << span.longestSpan() << std::endl;
-		std::cout << span.shortestSpan() << std::endl;
+		std::cout << std::endl;
+		std::cout << "longestSpan:  " << span.longestSpan() << std::endl;
+		std::cout << "shortestSpan: " << span.shortestSpan() << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -123,12 +124,13 @@ int main( void )
 	std::cout << std::endl << "------------------------------------------" << std::endl;
 	try
 	{
-		Span span(12345);
-		for (int i = 0; i < 12345; i++)
-			span.addNumber(i*i);
-		span.printTab();
-		std::cout << span.longestSpan() << std::endl;
-		std::cout << span.shortestSpan() << std::endl;
+		Span span(100000);
+		for (int i = 0; i < 100000; i++)
+			span.addNumber(i+12*i*i+43);
+		// span.printTab();
+		std::cout << std::endl;
+		std::cout << "longestSpan:  " << span.longestSpan() << std::endl;
+		std::cout << "shortestSpan: " << span.shortestSpan() << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -137,11 +139,14 @@ int main( void )
 	{
 
 	std::cout << std::endl << "------------------------------------------" << std::endl;
-	Span span(6);
+	Span span(8);
 	try
 	{
 		span.addNumber(42);
-		unsigned int tab[] = {1, 2};
+		span.addNumber(12);
+		span.addNumber(124);
+		span.printTab();
+		unsigned int tab[] = {1, 18};
     	std::vector<unsigned int> vec1(tab, tab + sizeof(tab) / sizeof(tab[0]));
 		span.addNumbers<std::vector<unsigned int> >(vec1.begin(), vec1.end());
 		span.printTab();

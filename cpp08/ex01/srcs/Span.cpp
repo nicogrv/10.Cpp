@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:16:09 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/25 11:53:28 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/30 18:43:57 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,37 +55,32 @@ void Span::addNumber(int number)
 
 }
 
-int Span::shortestSpan()
+long long Span::shortestSpan()
 {
 	if (this->_vec.size() < 2)	
 		throw std::runtime_error("bad size (size < 2)");
 
 	int diff = INT_MAX;
-	for (unsigned long i = 0; i < this->_vec.size(); i++)
+	std::vector<int> vec = this->_vec;
+	std::sort(vec.begin(), vec.end());
+	
+	for (std::vector<int>::iterator it = vec.begin(); it != vec.end()-1; it++)
 	{
-		for (unsigned long j = i + 1; j < this->_vec.size(); j++)
-		{
-			if (std::abs(this->_vec[i] - this->_vec[j]) < diff)
-				diff = std::abs(this->_vec[i] - this->_vec[j]);
-		}
+		if (std::abs((*(it+1)) - *(it)) < diff)
+			diff = std::abs((*(it+1)) - *(it));
 	}
-	return diff;
+	return (diff);
+	
 }
 
-int Span::longestSpan()
+long long Span::longestSpan()
 {
 	if (this->_vec.size() < 2)	
 		throw std::runtime_error("bad size (size < 2)");
-	int min = this->_vec[0];
-	int max = this->_vec[0];
-	for (unsigned long i = 0; i < this->_vec.size(); i++)
-	{
-		if (this->_vec[i] < min)
-			min = this->_vec[i];
-		else if (max < this->_vec[i])
-			max = this->_vec[i];
-	}
-	return (max - min);
+	std::vector<int> vec = this->_vec;
+	
+	std::sort(vec.begin(), vec.end());
+	return static_cast<long long>(*(--vec.end())) - static_cast<long long>(*(vec.begin()));
 }
 
 unsigned long Span::getLenght()

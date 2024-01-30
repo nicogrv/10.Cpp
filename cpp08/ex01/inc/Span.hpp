@@ -5,6 +5,7 @@
 # include <climits>
 # include <vector>
 # include <deque>
+# include <algorithm>
 
 class Span {
 
@@ -17,8 +18,8 @@ class Span {
 		Span(unsigned long N);
 
 		void addNumber(int number);
-		int shortestSpan();
-		int longestSpan();
+		long long shortestSpan();
+		long long longestSpan();
 
 		unsigned long getLenght();
 		void printTab();
@@ -26,20 +27,19 @@ class Span {
 		template<typename T>
 		void	addNumbers(typename T::iterator	begin, typename T::iterator	end)
 		{
-			unsigned int sizeOfAdd = 0;
-			typename T::iterator	it = begin;
-
-			while (it != end)
-			{
-				sizeOfAdd++;
-				it++;
-			}
-			if (this->_lenght - this->_vec.size() < sizeOfAdd)
+			std::cout << this->_lenght << " : " << this->_vec.size() << " : " << this->_lenght -  this->_vec.size()<< " : "  <<  std::distance(begin, end) << std::endl;
+			if ((static_cast<unsigned int>(this->_lenght - this->_vec.size()) < std::distance(begin, end)))
 				throw std::runtime_error("can't add numbers: not enough space");
-			while (begin != end)
+			for(;begin != end; begin++)
 			{
-				this->_vec.push_back(*begin);
-				begin++;
+				try
+				{
+					this->addNumber(*begin);
+				}
+				catch (...)
+				{
+					throw ;
+				}
 			}
 		}
 	
