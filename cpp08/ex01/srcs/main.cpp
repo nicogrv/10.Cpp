@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/01/30 18:45:56 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:40:57 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ int main( void )
 	}
 	}
 	
-	std::cout << std::endl << "------------------------------------------" << std::endl;
+	std::cout << std::endl << "--------------------Main subjet-----------------" << std::endl;
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);

@@ -27,7 +27,6 @@ class Span {
 		template<typename T>
 		void	addNumbers(typename T::iterator	begin, typename T::iterator	end)
 		{
-			std::cout << this->_lenght << " : " << this->_vec.size() << " : " << this->_lenght -  this->_vec.size()<< " : "  <<  std::distance(begin, end) << std::endl;
 			if ((static_cast<unsigned int>(this->_lenght - this->_vec.size()) < std::distance(begin, end)))
 				throw std::runtime_error("can't add numbers: not enough space");
 			for(;begin != end; begin++)
