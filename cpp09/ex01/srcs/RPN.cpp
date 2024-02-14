@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:49:58 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/14 14:10:18 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:23:17 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ long operation(int num1, int num2, char op)
 		return num1 - num2;
 	if (op == '*')
 		return num1 * num2;
-	if (op == '/')
+	if (op == '/' && num2 != 0)
 		return num1 / num2;
 	return -1;
 }
@@ -70,7 +70,10 @@ int calcul(std::string str, std::stack<int> &stack)
 				stack.pop();
 				num1 = stack.top();
 				stack.pop();
-				stack.push(operation(num1, num2, str[i]));
+				int result = operation(num1, num2, str[i]);
+				if (result == -1)
+					return -1;
+				stack.push(result);
 			}
 		}
 		space = !space;
