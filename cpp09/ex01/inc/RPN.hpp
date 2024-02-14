@@ -5,6 +5,8 @@
 # include <deque>
 # include <fstream>
 # include <stdlib.h>
+#include <iostream>
+#include <sstream>
 
 class RPN
 {
