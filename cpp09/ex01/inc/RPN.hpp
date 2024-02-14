@@ -2,15 +2,13 @@
 # define RPN_HPP
 # include <iostream>
 # include <string>
-# include <deque>
+# include <stack>
 # include <fstream>
 # include <stdlib.h>
 #include <iostream>
 #include <sstream>
 
-class RPN
-{
-};
+int RPN(std::string str);
 
 
 #endif
