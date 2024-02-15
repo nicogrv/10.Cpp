@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/15 17:16:45 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:52:45 by nicolasgriv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,12 @@
 	#define PMERGEME_HPP
 	#include <vector>
 	#include <iostream>
-	#include "../inc/Pair.hpp"
+	#include "./Pair.hpp"
 
 /* ************************************************************************** */
 
-void printVec(std::vector<int> &vec)
-{
-	std::vector<int>::iterator it;
-
-	for (it = vec.begin(); it != vec.end(); it++)
-	{
-		std::cout << *it;
-		if (it + 1 != vec.end())
-			std::cout << '|';
-	}
-	std::cout << std::endl;
-}
-
+int	pmergeMeSort(std::string str);
+void printVec(std::vector<int> &vec);
 
 template <typename T>
 std::vector<Pair<T> > makePair(std::vector<T> &vec)
@@ -50,7 +39,7 @@ std::vector<Pair<T> > makePair(std::vector<T> &vec)
 }
 
 template <typename T>
-int pmergeMe(std::vector<T> &vec, int iter)
+int pmergeMeSort(std::vector<T> &vec, int iter)
 {
 	(void) vec;
 	(void) iter;
@@ -70,9 +59,11 @@ int pmergeMe(std::vector<T> &vec, int iter)
 	}
 	std::vector<Pair<T> > newVec = makePair(vec);
 	
-	// printVec(vec);
-	// pmergeMe<Pair<T> >(newVec, iter--);
 	return 1;
 }
+
+
+
+
 
 #endif
