@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/15 19:13:23 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/02/19 11:38:30 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int c, char **v)
 {
 	if (c != 2)
 		return 1;
-	return (pmergeMeSort(v[1]));
+	return (pmergeMe(v[1]));
 }
 
 /* ************************************************************************** */

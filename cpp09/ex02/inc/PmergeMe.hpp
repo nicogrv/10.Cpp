@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/15 18:52:45 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/02/19 12:18:41 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,25 @@
 	#include <vector>
 	#include <iostream>
 	#include "./Pair.hpp"
+	#include <iostream>
+	#include <cstdlib>
 
 /* ************************************************************************** */
 
-int	pmergeMeSort(std::string str);
+
+template <unsigned int N>
+class PmergeMe
+{
+	public:
+		virtual ~PmergeMe() = 0;
+
+		template <typename T>
+		static int pmergeMeSort(std::vector<T> &vec);
+	private:
+};
+
+
+int	pmergeMe(std::string str);
 void printVec(std::vector<int> &vec);
 
 template <typename T>
@@ -37,14 +52,11 @@ std::vector<Pair<T> > makePair(std::vector<T> &vec)
 
 		
 }
-
+template <unsigned int N>
 template <typename T>
-int pmergeMeSort(std::vector<T> &vec, int iter)
+int PmergeMe<N>::pmergeMeSort(std::vector<T> &vec)
 {
-	(void) vec;
-	(void) iter;
-	return 1;
-	if (vec.size() < 2 && iter)
+	if (vec.size() < 2)
 		return 0;
 	T *impair;
 	if (vec.size() % 2)
@@ -58,12 +70,23 @@ int pmergeMeSort(std::vector<T> &vec, int iter)
 		std::cout << "PAIR" << std::endl;
 	}
 	std::vector<Pair<T> > newVec = makePair(vec);
+	PmergeMe<N-1>::pmergeMeSort(newVec);
 	
 	return 1;
 }
 
 
 
-
+template <>
+struct PmergeMe<1>
+{
+public:
+	template <typename T>
+	static int	pmergeMeSort(std::vector<T> &vec)
+	{
+		(void)	vec;
+		return 0;
+	}
+};
 
 #endif

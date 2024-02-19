@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
+/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:55:11 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/15 19:13:05 by nicolasgriv      ###   ########.fr       */
+/*   Updated: 2024/02/19 12:09:29 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ int parsing(std::string str, std::vector<int> &vec)
     }
     return 0;
 }
-
-int	pmergeMeSort(std::string str)
+int	pmergeMe(std::string str)
 {
     std::vector<int> vec;
     // vec.push_back(8);
@@ -70,5 +69,10 @@ int	pmergeMeSort(std::string str)
         return 1;
     }
     printVec(vec);
+    PmergeMe<2>::pmergeMeSort(vec);
+    printVec(vec);
+    PmergeMe<3>::pmergeMeSort(vec);
+    printVec(vec);
+
     return 1;
 }
