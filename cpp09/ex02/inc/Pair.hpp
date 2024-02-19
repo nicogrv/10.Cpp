@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/19 15:37:26 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:08:07 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ class Pair
 		Pair(const Pair &copy);
 		Pair &operator=(const Pair &copy);
 
-		Pair(T &a, T &b);
+		Pair(T *a, T *b);
 
 		void sortOrder();
 		void sortDisorder();
 
-		T getA() const;
-		T getB() const;
+		T *getA() const;
+		T *getB() const;
 
 		bool operator==(const Pair &copy);
 		bool operator<=(const Pair &copy);
@@ -41,21 +41,19 @@ class Pair
 
 	private:
 
-		T &_a;
-		T &_b;
-
-		T _tmp;
+		T *_a;
+		T *_b;
 };
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const Pair<T> &data)
 {
-	os << "A: " << data.getA() << " B: " << data.getB() << std::endl;
+	os << "A: " << *(data.getA()) << " B: " << *(data.getB()) << std::endl;
 	return os;
 }
 
 template <typename T>
-Pair<T>::Pair() : _a(_tmp), _b(_tmp)
+Pair<T>::Pair() : _a(-42), _b(-42)
 {}
 
 template <typename T>
@@ -78,7 +76,7 @@ Pair<T> &Pair<T>::operator=(const Pair &copy)
 }
 
 template <typename T>
-Pair<T>::Pair(T &a, T &b) : _a(a), _b(b)
+Pair<T>::Pair(T *a, T *b) : _a(a), _b(b)
 {}
 
 template <typename T>
@@ -86,8 +84,8 @@ void Pair<T>::sortOrder()
 {
 	if (this->getA() > this->getB())
 	{
-		this->_tmp = this->_a;
-		this->_a = this->_b;
+		this->_tmp = this->getA();
+		this->_a = this->getB();
 		this->_b = this->_tmp;
 	}
 }
@@ -95,72 +93,22 @@ void Pair<T>::sortOrder()
 template <typename T>
 void Pair<T>::sortDisorder()
 {
+	std::cout << *this << std::endl;
 	if (this->getA() < this->getB())
 	{
-		std::cout << "coucou swan" << '\n';
-		char	tmp_a[sizeof(T)];
-		char	tmp_b[sizeof(T)];
-
-		std::cout << "a: ";
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			std::cout << static_cast<int>((reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_a) ))[i]);
-		}
-		std::cout << '\n';
-		std::cout << "b: ";
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			std::cout <<  static_cast<int>((reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_b) ))[i]);
-		}
-		std::cout << '\n';
-
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			tmp_a[i] = (reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_a) ))[i];
-			tmp_b[i] = (reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_b) ))[i];
-		}
-
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			(reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_a) ))[i] = tmp_b[i];
-			(reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_b) ))[i] = tmp_a[i];
-		}
-		
-		std::cout << "tmp_a: ";
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			std::cout << static_cast<int>(tmp_a[i]);
-		}
-		std::cout << '\n';
-		std::cout << "tmp_b: ";
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			std::cout << static_cast<int>(tmp_b[i]);
-		}
-		std::cout << '\n';
-
-		std::cout << "a: ";
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			std::cout << static_cast<int>((reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_a) ))[i]);
-		}
-		std::cout << '\n';
-		std::cout << "b: ";
-		for (size_t i = 0; i < sizeof(T); i++)
-		{
-			std::cout <<  static_cast<int>((reinterpret_cast<char *>( reinterpret_cast<void *>(&this->_b) ))[i]);
-		}
-		std::cout << '\n';
+		std::cout << "ici\n";
+		std::swap(*this->_a, *this->_b);
 	}
+	std::cout << *this << std::endl << std::endl << std::endl;
 	
 }
 
 template <typename T>
-T Pair<T>::getA() const
+T *Pair<T>::getA() const
 {	return this->_a;}
 
 template <typename T>
-T Pair<T>::getB() const
+T *Pair<T>::getB() const
 {	return this->_b;}
 
 template <typename T>

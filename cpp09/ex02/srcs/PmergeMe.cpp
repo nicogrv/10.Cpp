@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:55:11 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/19 12:09:29 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:04:07 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ int	pmergeMe(std::string str)
         return 1;
     }
     printVec(vec);
-    PmergeMe<2>::pmergeMeSort(vec);
+    // PmergeMe<2>::pmergeMeSort(vec);
     printVec(vec);
-    PmergeMe<3>::pmergeMeSort(vec);
+    PmergeMe<10>::pmergeMeSort(vec);
     printVec(vec);
 
     return 1;

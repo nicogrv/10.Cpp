@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/19 12:18:41 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:53:01 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ std::vector<Pair<T> > makePair(std::vector<T> &vec)
 		return pairVec;
 	for(it = vec.begin(); it != vec.end() && it+1 != vec.end(); it += 2)
 	{
-			pairVec.push_back(Pair<T>(*it, *(it+1)));
+			pairVec.push_back(Pair<T>(&(*it), &(*(it+1))));
 			(pairVec.end()-1)->sortDisorder();
 	}
 	return pairVec;
