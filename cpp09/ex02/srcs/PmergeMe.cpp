@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:55:11 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/19 16:04:07 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:37:02 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,25 @@
 /* ************************************************************************** */
 
 
-void printVec(std::vector<int> &vec)
+template <typename T>
+void printVec(std::vector<T> &vec)
 {
-	std::vector<int>::iterator it;
+    std::string color[6] = {LIGHTRED, YELLOW, LIGHTGREEN, LIGHTCYAN, LIGHTBLUE, LIGHTPURPLE};
+	typename std::vector<T>::iterator it;
 
+    int i = 0;
+    std::cout << color[i%(sizeof(color)/sizeof(color[0]))];
 	for (it = vec.begin(); it != vec.end(); it++)
 	{
+            i++;
 		std::cout << *it;
 		if (it + 1 != vec.end())
-			std::cout << '|';
+        {
+			std::cout << NC << '|' << color[i%(sizeof(color)/sizeof(color[0]))];
+        }
+        
 	}
-	std::cout << std::endl;
+	std::cout << NC << std::endl;
 }
 
 
@@ -68,11 +76,8 @@ int	pmergeMe(std::string str)
         std::cout << "Error: bad input" << std::endl;
         return 1;
     }
-    printVec(vec);
     // PmergeMe<2>::pmergeMeSort(vec);
-    printVec(vec);
-    PmergeMe<10>::pmergeMeSort(vec);
-    printVec(vec);
+    PmergeMe<6>::pmergeMeSort(vec);
 
     return 1;
 }

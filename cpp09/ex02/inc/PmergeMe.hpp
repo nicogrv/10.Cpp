@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/19 15:53:01 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:56:22 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ class PmergeMe
 
 
 int	pmergeMe(std::string str);
-void printVec(std::vector<int> &vec);
+
+
+template <typename T>
+void printVec(std::vector<T> &vec);
 
 template <typename T>
 std::vector<Pair<T> > makePair(std::vector<T> &vec)
@@ -48,10 +51,41 @@ std::vector<Pair<T> > makePair(std::vector<T> &vec)
 			pairVec.push_back(Pair<T>(&(*it), &(*(it+1))));
 			(pairVec.end()-1)->sortDisorder();
 	}
+	
+
 	return pairVec;
 
 		
 }
+
+template <typename T>
+int binarySort(std::vector<Pair<T> > &vec)
+{
+	typename std::vector<T>::iterator it;
+	
+	for (it = vec.begin()+1; it != vec.end(); it++)
+}
+
+template <typename T>
+std::vector<T> insertPairs(std::vector<Pair<T> > &vec, T *impair)
+{
+	std::vector<T> newVec;
+	newVec.push_back(vec[0].getB());
+	newVec.push_back(vec[0].getA());
+	typename std::vector<Pair<T> >::iterator it;
+	
+	for (it = vec.begin()+1; it != vec.end(); it++)
+		newVec.push_back((*it).getA());
+	std::cout << "print newVec: " << std::endl;
+	printVec(newVec);
+	// vec.pop_back();
+	// vec.pop_back();
+	(void) vec;
+	(void) impair;	
+	return newVec;
+}
+
+
 template <unsigned int N>
 template <typename T>
 int PmergeMe<N>::pmergeMeSort(std::vector<T> &vec)
@@ -62,15 +96,17 @@ int PmergeMe<N>::pmergeMeSort(std::vector<T> &vec)
 	if (vec.size() % 2)
 	{	
 		impair = &vec[vec.size()-1];
-		std::cout << "IMPAIR" << std::endl;
+		std::cout << LIGHTPURPLE << "\tIMPAIR" << NC <<  std::endl;
 	}
 	else
 	{
 		impair = NULL;
-		std::cout << "PAIR" << std::endl;
+		std::cout << LIGHTGREEN << "\tPAIR" << NC <<  std::endl;
 	}
 	std::vector<Pair<T> > newVec = makePair(vec);
+	printVec(newVec);
 	PmergeMe<N-1>::pmergeMeSort(newVec);
+	vec = insertPairs(newVec, impair);
 	
 	return 1;
 }
