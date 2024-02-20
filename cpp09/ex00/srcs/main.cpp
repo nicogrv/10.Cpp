@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:26:29 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/13 17:49:29 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:51:00 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ int ft_find(char *v, std::map<int, float> &map)
 		float q = std::atof(line.substr(pos+1).c_str());
 		if (pos == std::string::npos || (0 < pos && (line[pos-1] != ' ' || line[pos+1] != ' ')))
 			std::cout << "Error: bad input => " << line << std::endl;
-		else if (2000 < q)
+		else if (1000 < q)
 			std::cout << "Error: too large a number." << std::endl;
 		else if (q < 0)
 			std::cout << "Error: not a positive number." << std::endl;
