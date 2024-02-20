@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/20 16:29:14 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:51:28 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 	#include "./Pair.hpp"
 	#include <iostream>
 	#include <cstdlib>
+	#include <sys/time.h>
 
 /* ************************************************************************** */
 
@@ -71,27 +72,26 @@ int binarySort(std::vector<T> &vec, T *element)
 			split = 0; 
 			break ;
 		}
-		std::cout << RED << min << " " << split << " " << max << NC <<  std::endl;
+		// std::cout << RED << min << " " << split << " " << max << NC <<  std::endl;
 		split = ((max - min) / 2)+min;
-		std::cout << ORANGE <<  min << " " << split << " " << max << NC <<  std::endl;
-		std::cout << "Check: " << *element << " " << vec[split] << NC <<  std::endl;
+		// std::cout << ORANGE <<  min << " " << split << " " << max << NC <<  std::endl;
+		// std::cout << "Check: " << *element << " " << vec[split] << NC <<  std::endl;
 		if (*element < vec[split])
 		{
 			max = split;
 			
-			std::cout << PURPLE <<  "max = " << split << std::endl;
+			// std::cout << PURPLE <<  "max = " << split << std::endl;
 		}
 		else
 		{
 			min = split;
-			std::cout << PURPLE << "min = " << split << std::endl;
+			// std::cout << PURPLE << "min = " << split << std::endl;
 		}
-		std::cout << GREEN << min << " " << split << " " << max << NC <<  std::endl;
+		// std::cout << GREEN << min << " " << split << " " << max << NC <<  std::endl;
 	}
 	if (vec[split] < *element)
 		split++;
-	if (element)
-	std::cout << LIGHTBLUE << "Insert index: " << split << NC <<  std::endl;
+	// std::cout << LIGHTBLUE << "Insert index: " << split << NC <<  std::endl;
 	return split;
 }
 
@@ -106,24 +106,24 @@ std::vector<T> insertPairs(std::vector<Pair<T> > &vec, T *impair)
     
     for (it = vec.begin()+1; it != vec.end(); it++)
 	{
-    	std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getA() << std::endl;
+    	// std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getA() << std::endl;
         newVec.push_back((*it).getA());
 	}
 	if (impair)
 	{
 		newVec.insert(newVec.begin() + binarySort(newVec, impair), *impair);
 	}
-    printVec(newVec);
+    // printVec(newVec);
 	for (it = vec.begin()+1; it != vec.end(); it++)
 	{
-    	std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getB() << std::endl;
+    	// std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getB() << std::endl;
 		index = binarySort(newVec, &((*it).getB()));
 		newVec.insert(newVec.begin() + index, (*it).getB());
-		printVec(newVec);
+		// printVec(newVec);
 	
 	}
-	std::cout << DARKGRAY << "Fi print newVec: " << std::endl;
-    printVec(newVec);
+	// std::cout << DARKGRAY << "Fi print newVec: " << std::endl;
+    // printVec(newVec);
 	// for (it = vec.begin()+1; it != vec.end(); it++)
         // newVec.insert(binarySort(newVec, ));
 	// binarySort(newVec, impair);
@@ -140,19 +140,19 @@ int PmergeMe<N>::pmergeMeSort(std::vector<T> &vec)
     if (vec.size() % 2)
     {   
         impair = &vec[vec.size()-1];
-        std::cout << LIGHTRED << "\t\t---IMPAIR---" << NC <<  std::endl;
+        // std::cout << LIGHTRED << "\t\t---IMPAIR---" << NC <<  std::endl;
     }
     else
     {
         impair = NULL;
-        std::cout << LIGHTGREEN << "\t\t---PAIR---" << NC <<  std::endl;
+        // std::cout << LIGHTGREEN << "\t\t---PAIR---" << NC <<  std::endl;
     }
 	// std::cout << GREEN << "Impair: " << impair << " " << &impair << std::endl;
     std::vector<Pair<T> > newVec = makePair(vec);
-    printVec(newVec);
-	std::cout << DARKGRAY << "\t----PMERGEME: " << N-1 << "----" << std::endl;
+    // printVec(newVec);
+	// std::cout << DARKGRAY << "\t----PMERGEME: " << N-1 << "----" << std::endl;
     PmergeMe<N-1>::pmergeMeSort(newVec);
-	std::cout << DARKGRAY << "\t---INSERTPAIR: " << N << "---" << std::endl;
+	// std::cout << DARKGRAY << "\t---INSERTPAIR: " << N << "---" << std::endl;
 
     vec = insertPairs(newVec, impair);
     

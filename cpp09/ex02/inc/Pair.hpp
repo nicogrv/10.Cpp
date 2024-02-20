@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/19 19:02:56 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:37:31 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ template <typename T>
 
 std::ostream& operator<<(std::ostream& os, const Pair<T> &data)
 {
-	(void) os;
-	(void) data;
 	os << (data.getA()) << " " << (data.getB());
 	return os;
 }
@@ -119,7 +117,7 @@ void Pair<T>::sortDisorder()
 {
 	if ((this->getA()) < (this->getB()))
 	{
-		std::cout << GREEN << "SWAP\n";
+		// std::cout << GREEN << "SWAP" << std::endl;
 		std::swap(this->_a, this->_b);
 	}
 	
@@ -157,23 +155,13 @@ bool Pair<T>::operator>=(const Pair &copy)
 template <typename T>
 bool Pair<T>::operator<(const Pair &copy)
 {
-	// std::cout << "check " << !!(this->_a < copy._a) << " " << *this->_a << " " << *copy._a<< "\n";
 	return (*this->_a < *copy._a);
 }
 
 template <typename T>
 bool Pair<T>::operator>(const Pair &copy)
 {
-
 	return (*this->_a > *copy._a);
 }
 
 #endif
-
-
-//  A:  A:  A: 62 B: 4
-//  	B:  A: 16 B: 8
-
-
-//  B:  A:  A: 4 B: 3
-//  	B:  A: 2 B: 1

@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:55:11 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/20 16:57:52 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:53:09 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int to_int(char *s)
      {
           if ( *s < '0' || *s > '9' )
             throw std::invalid_argument("invalid input string");
-          result = result * 10  - (*s - '0');  //assume negative number
+          result = result * 10  - (*s - '0');
           ++s;
      }
-     return negate ? result : -result; //-result is positive!
+     return negate ? result : -result;
 }
 
 
@@ -73,7 +73,7 @@ bool parsing(char **str, std::vector<int> &vec)
     {
         try
         {
-            std::cout << str[i] << " ";
+            std::cout << LIGHTRED << str[i] << NC << " ";
             vec.push_back(to_int(str[i]));
         }
         catch(const std::exception& e)
@@ -93,23 +93,32 @@ int checkSort(std::vector<int> &vec)
 
     for (it = vec.begin(); it+1 != vec.end(); it++)
     {
-        std::cout << RED << *(it+1) << " " << *it << NC << std::endl;
+        // std::cout << RED << *(it+1) << " " << *it << NC << std::endl;
         if (*(it+1)<=*it)
             return 1;
-        std::cout << GREEN << *(it+1) << " " << *it << NC << std::endl;
+        // std::cout << GREEN << *(it+1) << " " << *it << NC << std::endl;
 
         
     }
     return 0;
 }
+
+
 int	pmergeMe(char **str)
 {
+    struct timeval				tv;
+	size_t						start;
+	size_t						end;
     std::vector<int> vec;
     if (parsing(str, vec))
         return 1;
+
+    gettimeofday(&tv, 0);
+	start = 1000000 * tv.tv_sec + tv.tv_usec;
     PmergeMe<20>::pmergeMeSort(vec);
-    std::cout << "-=-=-=-=-=-=-=-=-=-=-=-" << std::endl;
+    gettimeofday(&tv, 0);
+	end = 1000000 * tv.tv_sec + tv.tv_usec;
     printVec(vec);
-    // std::cout << checkSort(vec) << std::endl;
+    std::cout << "Time taken: " << end-start << " seconds" << std::endl;
     return (checkSort(vec));
 }
