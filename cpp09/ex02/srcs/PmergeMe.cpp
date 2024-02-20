@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:55:11 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/19 17:37:02 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/20 16:57:52 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,43 +41,75 @@ void printVec(std::vector<T> &vec)
 }
 
 
-int parsing(std::string str, std::vector<int> &vec)
+int to_int(char *s)
 {
-    std::string tmp;
-    for (unsigned long i = 0; i <= str.size(); i++)
+     if ( s == NULL || *s == '\0' )
+        throw std::invalid_argument("null or empty string argument");
+
+     bool negate = (s[0] == '-');
+     if ( *s == '+' || *s == '-' ) 
+         ++s;
+
+     if ( *s == '\0')
+        throw std::invalid_argument("sign character only.");
+
+     int result = 0;
+     while(*s)
+     {
+          if ( *s < '0' || *s > '9' )
+            throw std::invalid_argument("invalid input string");
+          result = result * 10  - (*s - '0');  //assume negative number
+          ++s;
+     }
+     return negate ? result : -result; //-result is positive!
+}
+
+
+
+bool parsing(char **str, std::vector<int> &vec)
+{
+    int i = 0;
+    while (str[++i])
     {
-        if (std::isdigit(str[i]) || ((str[i] == '-' || str[i] == '+') && ((0 < i && str[i-1] == ' ') || i == 0) && std::isdigit(str[i+1])))
-            tmp += str[i];
-        else if ((str[i] == ' ' || i == str.size()) && tmp.size() != 0)
+        try
         {
-            vec.push_back(std::atoi(tmp.c_str()));
-            tmp = "";
+            std::cout << str[i] << " ";
+            vec.push_back(to_int(str[i]));
         }
-        else 
+        catch(const std::exception& e)
+        {
+            std::cout << LIGHTRED << e.what() << NC << std::endl;
+            return true;
+        }
+    }
+    std::cout << std::endl << std::endl;
+    return false;
+}
+
+
+int checkSort(std::vector<int> &vec)
+{
+    std::vector<int>::iterator it;
+
+    for (it = vec.begin(); it+1 != vec.end(); it++)
+    {
+        std::cout << RED << *(it+1) << " " << *it << NC << std::endl;
+        if (*(it+1)<=*it)
             return 1;
+        std::cout << GREEN << *(it+1) << " " << *it << NC << std::endl;
+
+        
     }
     return 0;
 }
-int	pmergeMe(std::string str)
+int	pmergeMe(char **str)
 {
     std::vector<int> vec;
-    // vec.push_back(8);
-	// vec.push_back(16);
-	// vec.push_back(4);
-	// vec.push_back(62);
-	// vec.push_back(42);
-	// vec.push_back(183);
-	// vec.push_back(19);
-	// vec.push_back(23);
-	// vec.push_back(15);
-	// vec.push_back(37);
     if (parsing(str, vec))
-    {
-        std::cout << "Error: bad input" << std::endl;
         return 1;
-    }
-    // PmergeMe<2>::pmergeMeSort(vec);
-    PmergeMe<6>::pmergeMeSort(vec);
-
-    return 1;
+    PmergeMe<20>::pmergeMeSort(vec);
+    std::cout << "-=-=-=-=-=-=-=-=-=-=-=-" << std::endl;
+    printVec(vec);
+    // std::cout << checkSort(vec) << std::endl;
+    return (checkSort(vec));
 }
