@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:55:11 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/20 19:27:55 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:19:32 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,50 @@ void printDeq(std::deque<T> &deq, bool print)
 }
 
 
+int	checkIntPt2(const char *str, int i, long nb, int signe)
+{
+	int	index;
+
+	index = i;
+	while ('0' <= str[i] && str[i] <= '9')
+		nb = nb * 10 + str[i++] - 48;
+	if ((i - index) > 15)
+		return (1);
+	if (str[i] == '\0' && -2147483648 <= (nb * signe)
+		&& (nb * signe) <= 2147483647 && (i - index) < 15)
+		return (0);
+	
+	return (1);
+}
+
+int	checkInt(const char *str)
+{	
+	int		i;
+	int		signe;
+	long	nb;
+
+	signe = 1;
+	i = 0;
+	nb = 0;
+	if (!str[i])
+		return (1);
+	while (('\t' <= str[i] && str[i] <= '\r') || (str[i] == ' '))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		i++;
+		signe = -signe;
+	}
+	if (str[i] == '\0')
+		return (1);
+	return (checkIntPt2(str, i, nb, signe));
+}
 
 int to_int(char *s)
 {
+    char *str = s;
      if ( s == NULL || *s == '\0' )
         throw std::invalid_argument("null or empty string argument");
 
@@ -87,6 +128,8 @@ int to_int(char *s)
           result = result * 10  - (*s - '0');
           ++s;
      }
+     if (checkInt(str))
+        throw std::invalid_argument("is not a int");
      return negate ? result : -result;
 }
 
@@ -101,6 +144,8 @@ bool parsingDeq(char **str, std::deque<int> &deq)
         try
         {
             nb = to_int(str[i]);
+            if (nb < 0)
+                throw std::invalid_argument("negative numbers");
             deq.push_back(nb);
         }
         catch(const std::exception& e)
@@ -120,11 +165,6 @@ bool parsingDeq(char **str, std::deque<int> &deq)
                 return true;
             }
         }
-        if (*it < 0)
-        {
-            std::cout << "Negative number: " << *it << std::endl;
-            return true;
-        }
     }
     return false;
 }
@@ -138,6 +178,8 @@ bool parsingVec(char **str, std::vector<int> &vec)
         try
         {
             nb = to_int(str[i]);
+            if (nb < 0)
+                throw std::invalid_argument("negative numbers");
             vec.push_back(nb);
         }
         catch(const std::exception& e)
@@ -153,14 +195,9 @@ bool parsingVec(char **str, std::vector<int> &vec)
         {
             if (*it == *iti)
             {
-                std::cout << "Number of duplicates: " << *it << std::endl;
+                std::cout << LIGHTRED << "Number of duplicates: " << *it << std::endl;
                 return true;
             }
-        }
-        if (*it < 0)
-        {
-            std::cout << "Negative number: " << *it << std::endl;
-            return true;
         }
     }
     return false;

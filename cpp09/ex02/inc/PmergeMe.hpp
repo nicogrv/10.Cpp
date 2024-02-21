@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/20 19:12:47 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:06:27 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ template <unsigned int N>
 class PmergeMe
 {
 	public:
-			virtual ~PmergeMe() = 0;
+		virtual ~PmergeMe() = 0;
 
 		template <typename T>
 		static int pmergeMeSortVec(std::vector<T> &vec);

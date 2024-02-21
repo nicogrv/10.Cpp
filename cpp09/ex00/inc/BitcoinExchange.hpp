@@ -6,13 +6,8 @@
 # include <fstream>
 # include <stdlib.h>
 
-class BitcoinExchange
-{
-	public:	
 
-	private:
-
-};
+int	BitcoinExchange(char *v);
 
 
 #endif
