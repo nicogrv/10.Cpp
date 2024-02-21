@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:47:48 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/21 16:19:32 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:06:27 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,15 @@ class PmergeMe
 
 		template <typename T>
 		static int pmergeMeSortDeq(std::deque<T> &deq);
-
-		static int	jacobsthal(int n1, int n2);
 	private:
 };
-
-template <unsigned int N>
-int	PmergeMe<N>::jacobsthal(int n1, int n2)
-{
-	return (n1 + 2 * n2);
-}
 
 
 int	pmergeMe(int c, char **str);
 
 
 template <typename T>
-void printVec(std::vector<T> &vec, bool print);
+void printVec(std::vector<T> &vec);
 
 template <typename T>
 std::vector<Pair<T> > makePairVec(std::vector<T> &vec)
@@ -67,103 +59,69 @@ std::vector<Pair<T> > makePairVec(std::vector<T> &vec)
 	return pairVec;	
 }
 
-
-
 template <typename T>
-typename std::vector<T>::iterator	binarySearchVec(typename std::vector<T>::iterator first, typename std::vector<T>::iterator last, T &toFind)
+int binarySortVec(std::vector<T> &vec, T *element)
 {
-	size_t								distance;
-	typename std::vector<T>::iterator	mid;
-
-	distance = std::distance(first, last);
-	if (distance < 2)
+	int min = 0;
+	int max = vec.size();
+	int split = -1;
+	while (1 < max - min)
 	{
-		if (*first >= toFind)
+		if (*element < vec[0])
 		{
-			std::cout << LIGHTCYAN << "1\n";
-			return first;
+			split = 0; 
+			break ;
 		}
-		else if (distance == 0 || (distance == 1 && *(first + 1) >= toFind))
+		// std::cout << RED << min << " " << split << " " << max << NC <<  std::endl;
+		split = ((max - min) / 2)+min;
+		// std::cout << ORANGE <<  min << " " << split << " " << max << NC <<  std::endl;
+		// std::cout << "Check: " << *element << " " << vec[split] << NC <<  std::endl;
+		if (*element < vec[split])
 		{
-			std::cout << LIGHTCYAN << "2\n";	
-			return first + 1;
+			max = split;
+			
+			// std::cout << PURPLE <<  "max = " << split << std::endl;
 		}
 		else
 		{
-			std::cout << LIGHTCYAN << "3\n";
-			return first + 2;
+			min = split;
+			// std::cout << PURPLE << "min = " << split << std::endl;
 		}
+		// std::cout << GREEN << min << " " << split << " " << max << NC <<  std::endl;
 	}
-
-	mid = first + distance / 2;
-	
-	std::cout << ORANGE << toFind << " " << *first << " " << *mid << " " << NC << std::endl; 
-	if (toFind == *mid)
-		return mid;
-	else if (toFind < *mid)
-	{
-		return binarySearchVec(first, mid, toFind);
-	}
-	else
-	{
-		return binarySearchVec(mid + 1, last, toFind);
-		
-	}
+	if (vec[split] < *element)
+		split++;
+	// std::cout << LIGHTBLUE << "Insert index: " << split << NC <<  std::endl;
+	return split;
 }
 
 template <typename T>
 std::vector<T> insertPairsVec(std::vector<Pair<T> > &vec, T *impair)
 {
     std::vector<T> newVec;
-	// int index;
+	int index;
     newVec.push_back(vec[0].getB());
     newVec.push_back(vec[0].getA());
     typename std::vector<Pair<T> >::iterator it;
     
     for (it = vec.begin()+1; it != vec.end(); it++)
 	{
-		printVec(newVec, true);
-    	std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getA() << std::endl;
+    	// std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getA() << std::endl;
         newVec.push_back((*it).getA());
-		printVec(newVec, true);
 	}
 	if (impair)
 	{
-		std::cout << BLUE << "Insert: " << *impair << std::endl;
-		newVec.insert(binarySearchVec(newVec.begin(), newVec.end(), *impair), *impair);
+		newVec.insert(newVec.begin() + binarySortVec(newVec, impair), *impair);
 	}
-
-	int j_lower	= 1;
-	int j_upper	= 1;
-	int tmp		= 1;
-	typename std::vector<T>::iterator itlast;
-	while (j_upper < static_cast<int>(vec.size()))
+    // printVec(newVec);
+	for (it = vec.begin()+1; it != vec.end(); it++)
 	{
-		tmp = j_lower;
-		j_lower = j_upper;
-		j_upper = std::min(PmergeMe<42>::jacobsthal(j_lower, tmp), static_cast<int>(vec.size()));
-		for (int i = j_upper - 1; i >= j_lower; i--)
-		{
-			if (j_upper == static_cast<int>(vec.size()))
-				itlast = newVec.end();
-			else
-				itlast = newVec.begin() + j_upper + j_lower - 1;
-			printVec(newVec, true);
-			std::cout << BLUE << "Insert: " << vec[i].getB() << std::endl;
-			newVec.insert(binarySearchVec(newVec.begin(), itlast, vec[i].getB()), vec[i].getB());
-			printVec(newVec, true);
-		}
+    	// std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getB() << std::endl;
+		index = binarySortVec(newVec, &((*it).getB()));
+		newVec.insert(newVec.begin() + index, (*it).getB());
+		// printVec(newVec);
+	
 	}
-	
-    // // printVec(newVec);
-	// for (it = vec.begin()+1; it != vec.end(); it++)
-	// {
-    // 	// std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getB() << std::endl;
-	// 	index = binarySortVec(newVec, &((*it).getB()));
-	// 	newVec.insert(newVec.begin() + index, (*it).getB());
-	// 	// printVec(newVec);
-	
-	// }
 	// std::cout << DARKGRAY << "Fi print newVec: " << std::endl;
     // printVec(newVec);
 	// for (it = vec.begin()+1; it != vec.end(); it++)
@@ -245,38 +203,46 @@ std::deque<Pair<T> > makePairDeq(std::deque<T> &deq)
 }
 
 template <typename T>
-typename std::deque<T>::iterator	binarySearchDeq(typename std::deque<T>::iterator first, typename std::deque<T>::iterator last, T &toFind)
+int binarySortDeq(std::deque<T> &vec, T *element)
 {
-	size_t								distance;
-	typename std::deque<T>::iterator	mid;
-
-	distance = std::distance(first, last);
-	if (distance < 2)
+	int min = 0;
+	int max = vec.size();
+	int split = -1;
+	while (1 < max - min)
 	{
-		if (*first >= toFind)
-			return first;
-		else if (distance == 0 || (distance == 1 && *(first + 1) >= toFind))
+		if (*element < vec[0])
 		{
-			return first + 1;
+			split = 0; 
+			break ;
+		}
+		// std::cout << RED << min << " " << split << " " << max << NC <<  std::endl;
+		split = ((max - min) / 2)+min;
+		// std::cout << ORANGE <<  min << " " << split << " " << max << NC <<  std::endl;
+		// std::cout << "Check: " << *element << " " << vec[split] << NC <<  std::endl;
+		if (*element < vec[split])
+		{
+			max = split;
+			
+			// std::cout << PURPLE <<  "max = " << split << std::endl;
 		}
 		else
-			return first + 2;
+		{
+			min = split;
+			// std::cout << PURPLE << "min = " << split << std::endl;
+		}
+		// std::cout << GREEN << min << " " << split << " " << max << NC <<  std::endl;
 	}
-
-	mid = first + distance / 2;
-	if (toFind == *mid)
-		return mid;
-	else if (toFind < *mid)
-		return binarySearchDeq(first, mid, toFind);
-	else
-		return binarySearchDeq(mid + 1, last, toFind);
+	if (vec[split] < *element)
+		split++;
+	// std::cout << LIGHTBLUE << "Insert index: " << split << NC <<  std::endl;
+	return split;
 }
 
 template <typename T>
 std::deque<T> insertPairsDeq(std::deque<Pair<T> > &deque, T *impair)
 {
     std::deque<T> newdeque;
-	// int index;
+	int index;
     newdeque.push_back(deque[0].getB());
     newdeque.push_back(deque[0].getA());
     typename std::deque<Pair<T> >::iterator it;
@@ -288,35 +254,17 @@ std::deque<T> insertPairsDeq(std::deque<Pair<T> > &deque, T *impair)
 	}
 	if (impair)
 	{
-		newdeque.insert(binarySearchDeq(newdeque.begin(), newdeque.end(), *impair), *impair);
+		newdeque.insert(newdeque.begin() + binarySortDeq(newdeque, impair), *impair);
 	}
     // printdeque(newdeque);
-	int j_lower	= 1;
-	int j_upper	= 1;
-	int tmp		= 1;
-	typename std::deque<T>::iterator itlast;
-	while (j_upper < static_cast<int>(deque.size()))
+	for (it = deque.begin()+1; it != deque.end(); it++)
 	{
-		tmp = j_lower;
-		j_lower = j_upper;
-		j_upper = std::min(PmergeMe<42>::jacobsthal(j_lower, tmp), static_cast<int>(deque.size()));
-		for (int i = j_upper - 1; i >= j_lower; i--)
-		{
-			if (j_upper == static_cast<int>(deque.size()))
-				itlast = newdeque.end();
-			else
-				itlast = newdeque.begin() + j_upper + j_lower - 1;
-			newdeque.insert(binarySearchDeq(newdeque.begin(), itlast, deque[i].getB()), deque[i].getB());
-		}
-	}
-	// for (it = deque.begin()+1; it != deque.end(); it++)
-	// {
-    // 	// std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getB() << std::endl;
-	// 	index = binarySortDeq(newdeque, &((*it).getB()));
-	// 	newdeque.insert(newdeque.begin() + index, (*it).getB());
-	// 	// printVec(newVec);
+    	// std::cout << std::endl<< LIGHTPURPLE <<  "Insert: " << (*it).getB() << std::endl;
+		index = binarySortDeq(newdeque, &((*it).getB()));
+		newdeque.insert(newdeque.begin() + index, (*it).getB());
+		// printVec(newVec);
 	
-	// }
+	}
 	// std::cout << DARKGRAY << "Fi print newVec: " << std::endl;
     // printVec(newVec);
 	// for (it = vec.begin()+1; it != vec.end(); it++)

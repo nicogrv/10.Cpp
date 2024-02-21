@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 14:55:11 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/21 16:15:39 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:19:32 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,13 +208,10 @@ int checkSortVec(std::vector<int> &vec)
 {
     std::vector<int>::iterator it;
 
-    std::cout << LIGHTBLUE << "ici\n";
     for (it = vec.begin(); it+1 != vec.end(); it++)
     {
-        std::cout << RED << *(it+1) << " " << *it; 
         if (*(it+1)<=*it)
             return 1;
-        std::cout << GREEN << *(it+1) << " " << *it << std::endl;
     }
     return 0;
 }
@@ -267,13 +264,7 @@ int	pmergeMe(int c, char **str)
     std::cout << "Time to process a range of "<< c-1 << " elements with std::Vector : " << inter-start << " us" << std::endl;
     std::cout << "Time to process a range of "<< c-1 << " elements with std::Deque  : " << end-inter << " us" << std::endl;
     if (checkSortVec(vec) || checkSortDeq(deq))
-    {
-        std::cout << LIGHTRED << "==============1==============\n" << std::endl;
         return 1;
-    }
     else 
-    {
-        std::cout << LIGHTGREEN << "==============0==============\n" << std::endl;
         return 0;
-    }
 }
