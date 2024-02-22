@@ -8,3 +8,4 @@ fclean:
 	@ find . -type d -name 'ex*' -exec make -s -C {} fclean \;
 re:
 	@ find . -type d -name 'ex*' -exec make -s -C {} re \;
+
