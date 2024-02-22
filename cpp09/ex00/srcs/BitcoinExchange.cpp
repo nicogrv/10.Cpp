@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:49:58 by ngriveau          #+#    #+#             */
-/*   Updated: 2024/02/21 14:08:33 by ngriveau         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:02:31 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,6 @@ int ft_find(char *v, std::map<int, float> &map, int firstDate, int lastDate)
 		std::cout << "Can't open data file" << std::endl;
 		return 1;
 	}
-	std::cout << firstDate << " " << lastDate << std::endl;
 	getline(file, line);
 	while(getline(file, line))
 	{
@@ -210,13 +209,11 @@ int ft_find(char *v, std::map<int, float> &map, int firstDate, int lastDate)
 					if (map[convertDate(line.substr(0, pos-1))-i] != -1)
 					{
 						std::cout << line.substr(0, pos-1) << " => " << q << " = " << q*map[convertDate(line.substr(0, pos-1))-i] << std::endl;
-						std::cout << q << "  " << map[convertDate(line.substr(0, pos-1))-i] << std::endl;
 						break;	
 					}
 					if (map[convertDate(line.substr(0, pos-1))+i] != -1)
 					{
 						std::cout << line.substr(0, pos-1) << " => " << q << " = " << q*map[convertDate(line.substr(0, pos-1))+i] << std::endl;
-						std::cout << q << "  " << map[convertDate(line.substr(0, pos-1))+i] << std::endl;
 						break;	
 					}
 					std::cout << map.size() << std::endl;
